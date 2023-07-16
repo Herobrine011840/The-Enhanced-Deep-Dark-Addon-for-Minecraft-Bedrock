@@ -1,0 +1,44 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:block": {
+		"description": {
+			"identifier": "dd:echo_root_bulb"
+		},
+		"components": {
+			"minecraft:block_light_absorption": 15,
+			"minecraft:destroy_time": 0.3,
+			"minecraft:map_color": "#3cc7cb",
+			"minecraft:creative_category": {
+				"category": "nature",
+				"group": "itemGroup.name.sculk"
+			},
+			"minecraft:explosion_resistance": 5,
+			"minecraft:block_light_emission": 0.6,
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "dd_echo_root_bulb",
+					"render_method": "blend"
+				}
+			},
+			"minecraft:on_interact": {
+				"condition": "query.get_equipped_item_name('main_hand')=='experience_bottle'",
+				"event": "bonemeal"
+			}
+		},
+		"events": {
+			"bonemeal": {
+				"spawn_loot": {
+					"table": "loot_tables/echo_bulb.json"
+				},
+				"run_command": {
+					"command": [
+						"playsound item.bone_meal.use @a [r=10] ~ ~ ~",
+						"particle minecraft:crop_growth_emitter ~ ~ ~",
+						"summon xp_orb"
+					]
+				},
+				"decrement_stack": {}
+			}
+		}
+	}
+}
