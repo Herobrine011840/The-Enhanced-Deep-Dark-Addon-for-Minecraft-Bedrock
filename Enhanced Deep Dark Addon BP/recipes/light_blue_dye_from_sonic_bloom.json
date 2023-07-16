@@ -1,0 +1,21 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_shapeless": {
+		"description": {
+			"identifier": "dd:light_blue_dye_from_sonic_bloom"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"ingredients": [
+			{
+				"count": 1,
+				"item": "dd:item.sonic_bloom"
+			}
+		],
+		"result": {
+			"count": 1,
+			"item": "light_blue_dye"
+		}
+	}
+}

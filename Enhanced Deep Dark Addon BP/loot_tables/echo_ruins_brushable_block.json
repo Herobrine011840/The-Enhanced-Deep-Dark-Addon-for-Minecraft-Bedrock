@@ -1,0 +1,275 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "dd:item.tendril_roots",
+          "weight": 4
+        },
+        {
+          "type": "item",
+          "name": "minecraft:light_gray_dye",
+          "weight": 4
+        },
+        {
+          "type": "item",
+          "name": "minecraft:blue_dye",
+          "weight": 4
+        },
+        {
+          "type": "item",
+          "name": "minecraft:gray_dye",
+          "weight": 4
+        },
+        {
+          "type": "item",
+          "name": "minecraft:cyan_dye",
+          "weight": 4
+        },
+        {
+          "type": "item",
+          "name": "minecraft:green_dye",
+          "weight": 4
+        },
+        {
+          "type": "item",
+          "name": "minecraft:black_dye",
+          "weight": 4
+        },
+        {
+          "type": "item",
+          "name": "minecraft:pink_petals",
+          "weight": 4
+        },
+        {
+          "type": "item",
+          "name": "minecraft:bamboo",
+          "weight": 4
+        },
+        {
+          "type": "item",
+          "name": "minecraft:bone",
+          "weight": 4
+        },
+        {
+          "type": "item",
+          "name": "minecraft:gunpowder",
+          "weight": 4
+        },
+        {
+          "type": "item",
+          "name": "minecraft:string",
+          "weight": 4
+        },
+        {
+          "type": "item",
+          "name": "minecraft:stick",
+          "weight": 4
+        },
+        {
+          "type": "item",
+          "name": "minecraft:iron_nugget",
+          "weight": 4
+        },
+        {
+          "type": "item",
+          "name": "minecraft:gold_nugget",
+          "weight": 4
+        },
+        {
+          "type": "item",
+          "name": "minecraft:potion",
+          "weight": 4
+        },
+        {
+          "type": "item",
+          "name": "minecraft:torch",
+          "weight": 4
+        },
+        {
+          "type": "item",
+          "name": "minecraft:copper_ingot",
+          "weight": 4
+        },
+        {
+          "type": "item",
+          "name": "minecraft:iron_ingot",
+          "weight": 4
+        },
+        {
+          "type": "item",
+          "name": "minecraft:paper",
+          "weight": 4
+        },
+        {
+          "type": "item",
+          "name": "minecraft:bowl",
+          "weight": 4
+        },
+        {
+          "type": "item",
+          "name": "minecraft:melon_slice",
+          "weight": 4
+        },
+        {
+          "type": "item",
+          "name": "minecraft:concrete_powder",
+          "weight": 4,
+          "functions": [
+            {
+              "function": "set_data",
+              "data": 7
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:gray_candle",
+          "weight": 4
+        },
+        {
+          "type": "item",
+          "name": "minecraft:feather",
+          "weight": 4
+        },
+        {
+          "type": "item",
+          "name": "minecraft:clay_ball",
+          "weight": 3
+        },
+        {
+          "type": "item",
+          "name": "minecraft:cooked_porkchop",
+          "weight": 3
+        },
+        {
+          "type": "item",
+          "name": "minecraft:tnt",
+          "weight": 3
+        },
+        {
+          "type": "item",
+          "name": "minecraft:frame",
+          "weight": 3
+        },
+        {
+          "type": "item",
+          "name": "minecraft:sculk_catalyst",
+          "weight": 3
+        },
+        {
+          "type": "item",
+          "name": "minecraft:glowstone_dust",
+          "weight": 3
+        },
+        {
+          "type": "item",
+          "name": "minecraft:redstone",
+          "weight": 3
+        },
+        {
+          "type": "item",
+          "name": "dd:war_deepslate_sigil",
+          "weight": 3
+        },
+        {
+          "type": "item",
+          "name": "dd:echo_shard_crafting_template",
+          "weight": 3
+        },
+        {
+          "type": "item",
+          "name": "minecraft:amethyst_shard",
+          "weight": 2
+        },
+        {
+          "type": "item",
+          "name": "minecraft:ender_pearl",
+          "weight": 2
+        },
+        {
+          "type": "item",
+          "name": "dd:echoing_flower_seeds",
+          "weight": 2
+        },
+        {
+          "type": "item",
+          "name": "minecraft:emerald",
+          "weight": 2
+        },
+        {
+          "type": "item",
+          "name": "minecraft:gold_ingot",
+          "weight": 2
+        },
+        {
+          "type": "item",
+          "name": "dd:echo_dust",
+          "weight": 2
+        },
+        {
+          "type": "item",
+          "name": "dd:echo_glass",
+          "weight": 2
+        },
+        {
+          "type": "item",
+          "name": "minecraft:book",
+          "weight": 2,
+          "functions": [
+            {
+              "function": "enchant_with_levels",
+              "levels": {
+                "min": 3,
+                "max": 30
+              },
+              "treasure": true
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:music_disc_cat",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "minecraft:music_disc_13",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "minecraft:plenty_pottery_sherd",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "minecraft:prize_pottery_sherd",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "minecraft:burn_pottery_sherd",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "minecraft:shelter_pottery_sherd",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "dd:hollowed_stone",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "minecraft:name_tag",
+          "weight": 1
+        }
+      ]
+    }
+  ]
+}

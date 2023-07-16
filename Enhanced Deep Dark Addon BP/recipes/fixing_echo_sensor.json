@@ -1,0 +1,33 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_shapeless": {
+		"description": {
+			"identifier": "dd:fixing_echo_sensor"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"ingredients": [
+			{
+				"count": 1,
+				"item": "dd:broken_echo_sensor"
+			},
+			{
+				"count": 5,
+				"item": "dd:chiseled_wardenstone"
+			},
+			{
+				"count": 1,
+				"item": "amethyst_block"
+			},
+			{
+				"count": 1,
+				"item": "netherite_scrap"
+			}
+		],
+		"result": {
+			"count": 1,
+			"item": "dd:echo_sensor"
+		}
+	}
+}
