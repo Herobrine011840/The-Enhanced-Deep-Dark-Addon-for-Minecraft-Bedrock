@@ -1,0 +1,10 @@
+{
+	"biomes": {
+		"deep_dark": {
+			"water_surface_color": "#2496a5",
+			"water_surface_transparency": 0.35,
+			"fog_identifier": "dd:fog_deep_dark",
+			"inherit_from_prior_fog": false
+		}
+	}
+}
