@@ -1,0 +1,40 @@
+{
+	"texture_data": {
+		"dd_echo_dust": {
+			"textures": "textures/items/echo_dust"
+		},
+		"dd_item.echoing_flower": {
+			"textures": "textures/items/item.echoing_flower"
+		},
+		"dd_echoing_flower_seeds": {
+			"textures": "textures/items/echoing_flower_seeds"
+		},
+		"dd_item.silence_bloom": {
+			"textures": "textures/items/item.silence_bloom"
+		},
+		"dd_sculk_prism": {
+			"textures": "textures/items/sculk_prism"
+		},
+		"dd_item.tendril_roots": {
+			"textures": "textures/items/item.tendril_roots"
+		},
+		"dd_echo_shard_crafting_template": {
+			"textures": "textures/items/echo_shard_crafting_template"
+		},
+		"dd_distraction_deepslate_sigil": {
+			"textures": "textures/items/distaction_deepslate_sigil"
+		},
+		"dd_monster_deepslate_sigil": {
+			"textures": "textures/items/monster_deepslate_sigil"
+		},
+		"dd_safe_deepslate_sigil": {
+			"textures": "textures/items/safe_deepslate_sigil"
+		},
+		"dd_war_deepslate_sigil": {
+			"textures": "textures/items/war_deepslate_sigil"
+		},
+		"dd_item.sonic_bloom": {
+			"textures": "textures/items/item.sonic_bloom"
+		}
+	}
+}
