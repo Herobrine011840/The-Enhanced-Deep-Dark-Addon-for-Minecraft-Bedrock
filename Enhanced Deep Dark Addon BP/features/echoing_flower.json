@@ -1,0 +1,20 @@
+{
+	"format_version": "1.18.20",
+	"minecraft:single_block_feature": {
+		"description": {
+			"identifier": "dd:echoing_flower"
+		},
+		"places_block": "dd:echoing_flower",
+		"enforce_placement_rules": true,
+		"enforce_survivability_rules": true,
+		"may_replace": [
+			"air"
+		],
+		"may_attach_to": {
+			"bottom": [
+				"sculk",
+				"dd:dead_sculk"
+			]
+		}
+	}
+}
