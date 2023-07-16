@@ -1,8 +1,11 @@
 The Official Enhanced Deep Dark Addon by Herobrine011840.
+![Minecraft 7_14_2023 5_46_31 PM](https://github.com/Herobrine011840/The-Enhanced-Deep-Dark-Addon-for-Minecraft-Bedrock/assets/139717119/8fa2437c-b5f9-4aab-8bd1-93a2d956d577)
+
 A few tips on downloading:
 1. When loading a world with the addon, activate holiday creator features, custom biomes, & upcoming creator features.
 2. If you activate bonus chest there will be a guidebook in the chest.
 3. Use version 1.20.0 or higher.
 4. Some older versions have bugs in them and it is not rcommended to use version 1.3.0 or 1.5.0 as some features do not work properly.
+
 You can preview some of the code from the latest version in the repository.
 Go to youtube.com/@Herobrinebedrock for more info on the addons.
