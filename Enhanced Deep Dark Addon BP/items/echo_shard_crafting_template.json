@@ -1,0 +1,18 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:item": {
+		"description": {
+			"identifier": "dd:echo_shard_crafting_template",
+			"category": "items"
+		},
+		"components": {
+			"minecraft:icon": {
+				"texture": "dd_echo_shard_crafting_template"
+			},
+			"minecraft:max_stack_size": 64,
+			"minecraft:creative_category": {
+				"parent": "itemGroup.name.smithing_templates"
+			}
+		}
+	}
+}
