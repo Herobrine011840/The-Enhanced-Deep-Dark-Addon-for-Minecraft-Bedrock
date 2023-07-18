@@ -11,15 +11,9 @@ A few tips on downloading:
 You can preview some of the code from the latest version in the repository.
 Go to youtube.com/@Herobrinebedrock for more info on the addons.
 
-Explore the Enhanced Deep Dark addon today!
-
- -Discover the ancient city and all the new flora and fauna in it
- 
- -Excavate the Echo Ruins and find lost treasures
- 
- -Rebuild the past with Deepslate Sigils
- 
- -Build the next technological advancement with echo electronics
- 
+Explore the Enhanced Deep Dark addon today!                                                                
+ -Discover the ancient city and all the new flora and fauna in it                                                                
+ -Excavate the Echo Ruins and find lost treasures                                                                
+ -Rebuild the past with Deepslate Sigils                                                                
+ -Build the next technological advancement with echo electronics                                                                
  -And more!
- 
