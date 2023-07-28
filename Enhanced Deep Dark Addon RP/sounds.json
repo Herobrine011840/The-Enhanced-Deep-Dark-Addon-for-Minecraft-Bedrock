@@ -1,0 +1,186 @@
+{
+	"entity_sounds": {
+		"entities": {
+			"dd:depth_underling": {
+				"events": {
+					"ambient": "mob.allay.idle",
+					"death": {
+						"pitch": [
+							0.8,
+							1
+						],
+						"sound": "mob.allay.death",
+						"volume": 1
+					},
+					"emerge": {
+						"pitch": 1,
+						"sound": "mob.allay.idle",
+						"volume": 5
+					},
+					"hurt": {
+						"pitch": [
+							0.8,
+							1
+						],
+						"sound": "mob.allay.hurt",
+						"volume": 1
+					},
+					"idle": {
+						"pitch": 1,
+						"sound": "mob.allay.idle",
+						"volume": 3
+					}
+				},
+				"pitch": [
+					0.8,
+					1.2
+				],
+				"volume": 1
+			},
+			"dd:darkness_terror": {
+				"events": {
+					"agitated": {
+						"pitch": [
+							0.8,
+							1.2
+						],
+						"sound": "mob.warden.agitated",
+						"volume": 10
+					},
+					"ambient": {
+						"pitch": 0.7,
+						"sound": "mob.warden.idle",
+						"volume": 3
+					},
+					"angry": {
+						"pitch": [
+							0.8,
+							1.2
+						],
+						"sound": "mob.warden.angry",
+						"volume": 10
+					},
+					"attack": {
+						"pitch": 1,
+						"sound": "mob.warden.attack",
+						"volume": 10
+					},
+					"death": {
+						"pitch": [
+							0.5,
+							0.51
+						],
+						"sound": "shriek.sculk_shrieker",
+						"volume": 1
+					},
+					"dig": {
+						"pitch": 1,
+						"sound": "mob.warden.dig",
+						"volume": 5
+					},
+					"emerge": {
+						"pitch": 1,
+						"sound": "mob.warden.emerge",
+						"volume": 5
+					},
+					"heartbeat": {
+						"pitch": 1,
+						"sound": "mob.warden.heartbeat",
+						"volume": 5
+					},
+					"hurt": {
+						"pitch": [
+							0.5,
+							0.6
+						],
+						"sound": "mob.warden.hurt",
+						"volume": 1
+					},
+					"idle": {
+						"pitch": 0.7,
+						"sound": "mob.warden.idle",
+						"volume": 3
+					},
+					"listening": {
+						"pitch": [
+							0.8,
+							1.2
+						],
+						"sound": "mob.warden.listening",
+						"volume": 10
+					},
+					"listening_angry": {
+						"pitch": [
+							0.8,
+							1.2
+						],
+						"sound": "mob.warden.listening_angry",
+						"volume": 10
+					},
+					"roar": {
+						"pitch": 1,
+						"sound": "mob.warden.roar",
+						"volume": 10
+					},
+					"sniff": {
+						"pitch": 1,
+						"sound": "mob.warden.sniff",
+						"volume": 5
+					},
+					"step": {
+						"pitch": 1,
+						"sound": "mob.warden.step",
+						"volume": 10
+					}
+				},
+				"pitch": [
+					0.7,
+					0.8
+				],
+				"volume": 1
+			},
+			"dd:lost_scuttler": {
+				"events": {
+					"ambient": "mob.endermite.say",
+					"death": {
+						"pitch": 1.7,
+						"sound": "mob.warden.death",
+						"volume": 0.3
+					},
+					"hurt": {
+						"pitch": 1.7,
+						"sound": "mob.warden.hurt",
+						"volume": 0.3
+					},
+					"step": {
+						"pitch": 1.25,
+						"sound": "mob.warden.step",
+						"volume": 0.5
+					}
+				},
+				"pitch": [
+					0.8,
+					1.2
+				],
+				"volume": 1
+			},
+			"dd:sonic_sentry": {
+				"events": {
+					"hurt": {
+						"pitch": [
+							0.8,
+							1
+						],
+						"sound": "hit.deepslate",
+						"volume": 1
+					}
+				},
+				"pitch": [
+					0.8,
+					1.2
+				],
+				"volume": 1
+			}
+		}
+	}
+}
