@@ -1,0 +1,31 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "dd:resonance_chamber"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"A": {
+				"item": "amethyst_shard"
+			},
+			"E": {
+				"item": "dd:echo_dust"
+			},
+			"W": {
+				"item": "dd:wardenstone"
+			}
+		},
+		"pattern": [
+			"WAW",
+			"AEA",
+			"WAW"
+		],
+		"result": {
+			"count": 6,
+			"item": "dd:resonance_chamber"
+		}
+	}
+}

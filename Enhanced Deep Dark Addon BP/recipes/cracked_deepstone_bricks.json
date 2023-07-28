@@ -1,0 +1,13 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_furnace": {
+		"description": {
+			"identifier": "dd:cracked_deepstone_bricks"
+		},
+		"tags": [
+			"furnace"
+		],
+		"input": "dd:deepstone_bricks",
+		"output": "dd:cracked_deepstone_bricks"
+	}
+}

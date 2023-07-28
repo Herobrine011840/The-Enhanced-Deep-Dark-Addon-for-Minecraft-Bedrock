@@ -1,0 +1,21 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_shapeless": {
+		"description": {
+			"identifier": "dd:chisled_wardenstone_cut"
+		},
+		"tags": [
+			"stonecutter"
+		],
+		"ingredients": [
+			{
+				"count": 1,
+				"item": "dd:wardenstone"
+			}
+		],
+		"result": {
+			"count": 1,
+			"item": "dd:chiseled_wardenstone"
+		}
+	}
+}

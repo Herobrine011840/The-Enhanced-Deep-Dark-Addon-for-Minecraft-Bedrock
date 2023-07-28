@@ -1,0 +1,31 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "dd:echo_darkness_shrieker"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"e": {
+				"item": "dd:echo_dust"
+			},
+			"E": {
+				"item": "dd:echo_shrieker"
+			},
+			"P": {
+				"item": "dd:sculk_prism"
+			}
+		},
+		"pattern": [
+			"e",
+			"E",
+			"P"
+		],
+		"result": {
+			"count": 1,
+			"item": "dd:echo_darkness_shrieker"
+		}
+	}
+}

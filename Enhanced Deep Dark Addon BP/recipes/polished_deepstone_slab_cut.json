@@ -1,0 +1,21 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_shapeless": {
+		"description": {
+			"identifier": "dd:polished_deepstone_slab_cut"
+		},
+		"tags": [
+			"stonecutter"
+		],
+		"ingredients": [
+			{
+				"count": 1,
+				"item": "dd:polished_deepstone"
+			}
+		],
+		"result": {
+			"count": 2,
+			"item": "dd:polished_deepstone_slab"
+		}
+	}
+}

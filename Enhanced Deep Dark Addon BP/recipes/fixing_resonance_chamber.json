@@ -1,0 +1,29 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_shapeless": {
+		"description": {
+			"identifier": "dd:fixing_resonance_chamber"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"ingredients": [
+			{
+				"count": 1,
+				"item": "dd:broken_resonance_chamber"
+			},
+			{
+				"count": 1,
+				"item": "dd:wardenstone"
+			},
+			{
+				"count": 2,
+				"item": "amethyst_shard"
+			}
+		],
+		"result": {
+			"count": 1,
+			"item": "dd:resonance_chamber"
+		}
+	}
+}

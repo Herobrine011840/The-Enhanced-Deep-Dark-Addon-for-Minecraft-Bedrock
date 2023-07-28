@@ -1,0 +1,29 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_shapeless": {
+		"description": {
+			"identifier": "dd:echo_lamp"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"ingredients": [
+			{
+				"count": 1,
+				"item": "redstone_lamp"
+			},
+			{
+				"count": 1,
+				"item": "dd:echo_dust"
+			},
+			{
+				"count": 1,
+				"item": "sculk_vein"
+			}
+		],
+		"result": {
+			"count": 1,
+			"item": "dd:echo_lamp"
+		}
+	}
+}
