@@ -1,0 +1,11 @@
+{
+	"format_version": "1.18.20",
+	"minecraft:snap_to_surface_feature": {
+		"description": {
+			"identifier": "dd:climbing_undergrowth_snap"
+		},
+		"feature_to_snap": "dd:climbing_undergrowth",
+		"vertical_search_range": 3,
+		"surface": "floor"
+	}
+}

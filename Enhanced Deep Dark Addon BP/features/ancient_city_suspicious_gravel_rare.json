@@ -1,0 +1,18 @@
+{
+	"format_version": "1.18.20",
+	"minecraft:structure_template_feature": {
+		"description": {
+			"identifier": "dd:ancient_city_suspicious_gravel_rare"
+		},
+		"structure_name": "mystructure:ancient_city_suspicious_gravel_rare",
+		"adjustment_radius": 16,
+		"constraints": {
+			"grounded": {},
+			"block_intersection": {
+				"block_allowlist": [
+					"dd:wardenstone_tiles"
+				]
+			}
+		}
+	}
+}

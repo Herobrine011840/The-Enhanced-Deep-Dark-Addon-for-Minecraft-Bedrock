@@ -1,0 +1,19 @@
+{
+	"format_version": "1.17.0",
+	"minecraft:ore_feature": {
+		"description": {
+			"identifier": "dd:hollowed_stone_feature"
+		},
+		"count": 50,
+		"replace_rules": [
+			{
+				"places_block": {
+					"name": "dd:hollowed_stone"
+				},
+				"may_replace": [
+					"blue_ice"
+				]
+			}
+		]
+	}
+}
