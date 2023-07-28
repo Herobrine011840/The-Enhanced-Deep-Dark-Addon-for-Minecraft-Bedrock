@@ -1,0 +1,52 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:block": {
+		"description": {
+			"identifier": "dd:lost_tome"
+		},
+		"components": {
+			"minecraft:geometry": "geometry.lost_tome",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "dd_lost_tome",
+					"render_method": "alpha_test",
+					"face_dimming": false,
+					"ambient_occlusion": false
+				}
+			},
+			"minecraft:block_light_absorption": 0,
+			"minecraft:creative_category": {
+				"category": "commands",
+				"group": "commands"
+			},
+			"minecraft:explosion_resistance": 1,
+			"minecraft:destroy_time": 0.3,
+			"minecraft:map_color": "#654b17",
+			"minecraft:entity_collision": {
+				"origin": [
+					-7,
+					0,
+					-7
+				],
+				"size": [
+					13,
+					4,
+					14
+				]
+			},
+			"minecraft:pick_collision": {
+				"origin": [
+					-7,
+					0,
+					-7
+				],
+				"size": [
+					13,
+					4,
+					14
+				]
+			},
+			"minecraft:loot": "loot_tables/lost_tome.json"
+		}
+	}
+}

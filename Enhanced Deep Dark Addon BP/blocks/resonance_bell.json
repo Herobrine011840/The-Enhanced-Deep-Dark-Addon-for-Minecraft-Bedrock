@@ -1,0 +1,129 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:block": {
+		"description": {
+			"identifier": "dd:resonance_bell",
+			"properties": {
+				"dd:ringing": [
+					0,
+					1,
+					2
+				]
+			}
+		},
+		"components": {
+			"minecraft:geometry": "geometry.resonance_bell",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "dd_resonance_bell",
+					"render_method": "alpha_test",
+					"ambient_occlusion": false,
+					"face_dimming": false
+				}
+			},
+			"minecraft:block_light_absorption": 0,
+			"minecraft:destroy_time": 20,
+			"minecraft:map_color": "#4e5660",
+			"minecraft:creative_category": {
+				"category": "items",
+				"group": "items"
+			},
+			"minecraft:explosion_resistance": 500,
+			"minecraft:entity_collision": {
+				"origin": [
+					-4,
+					4,
+					-4
+				],
+				"size": [
+					8,
+					12,
+					8
+				]
+			},
+			"minecraft:pick_collision": {
+				"origin": [
+					-4,
+					4,
+					-4
+				],
+				"size": [
+					8,
+					12,
+					8
+				]
+			}
+		},
+		"permutations": [
+			{
+				"condition": "query.block_property('dd:ringing') == 0",
+				"components": {
+					"minecraft:on_interact": {
+						"event": "ring_start"
+					}
+				}
+			},
+			{
+				"condition": "query.block_property('dd:ringing') == 1",
+				"components": {
+					"minecraft:ticking": {
+						"on_tick": {
+							"event": "ring_cooldown"
+						},
+						"looping": false,
+						"range": [
+							2,
+							2
+						]
+					}
+				}
+			},
+			{
+				"condition": "query.block_property('dd:ringing') == 2",
+				"components": {
+					"minecraft:ticking": {
+						"on_tick": {
+							"event": "ring_cooldown_done"
+						},
+						"looping": false,
+						"range": [
+							120,
+							120
+						]
+					}
+				}
+			}
+		],
+		"events": {
+			"ring_start": {
+				"run_command": {
+					"command": [
+						"event entity @e [r=8,type=warden] minecraft:digging_as_response_to_bell_ringing",
+						"playsound block.bell.hit @a ~ ~ ~ 10 0.5",
+						"particle dd:resonance_bell_ring ~ ~ ~"
+					]
+				},
+				"set_block_property": {
+					"dd:ringing": 1
+				}
+			},
+			"ring_cooldown": {
+				"run_command": {
+					"command": [
+						"event entity @e [r=16,type=warden] minecraft:digging_as_response_to_bell_ringing",
+						"playsound block.bell.hit @a ~ ~ ~ 10 0.5",
+						"particle dd:resonance_bell_ring ~ ~ ~"
+					]
+				},
+				"set_block_property": {
+					"dd:ringing": 2
+				}
+			},
+			"ring_cooldown_done": {
+				"set_block_property": {
+					"dd:ringing": 0
+				}
+			}
+		}
+	}
+}

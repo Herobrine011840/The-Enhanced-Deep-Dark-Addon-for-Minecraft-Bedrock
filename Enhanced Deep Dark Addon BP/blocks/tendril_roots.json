@@ -1,0 +1,75 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:block": {
+		"description": {
+			"identifier": "dd:tendril_roots"
+		},
+		"components": {
+			"minecraft:geometry": "geometry.echoing_flower",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "dd_tendril_roots",
+					"render_method": "alpha_test",
+					"ambient_occlusion": false,
+					"face_dimming": false
+				}
+			},
+			"minecraft:entity_collision": false,
+			"minecraft:pick_collision": {
+				"origin": [
+					-6,
+					5,
+					-6
+				],
+				"size": [
+					12,
+					11,
+					12
+				]
+			},
+			"minecraft:block_light_absorption": 0,
+			"minecraft:map_color": "#009295",
+			"minecraft:creative_category": {
+				"category": "commands",
+				"group": "commands"
+			},
+			"minecraft:block_light_emission": 0.2,
+			"minecraft:destroy_time": 1e-7,
+			"minecraft:explosion_resistance": 0.2,
+			"minecraft:loot": "loot_tables/tendril_roots.json",
+			"minecraft:placement_filter": {
+				"conditions": [
+					{
+						"allowed_faces": [
+							"down"
+						],
+						"block_filter": [
+							"sculk",
+							"dd:dead_sculk",
+							"dd:soul_magma"
+						]
+					}
+				]
+			},
+			"minecraft:on_interact": {
+				"condition": "query.get_equipped_item_name('main_hand')=='experience_bottle'",
+				"event": "bonemeal"
+			}
+		},
+		"events": {
+			"bonemeal": {
+				"spawn_loot": {
+					"table": "loot_tables/tendril_roots.json"
+				},
+				"run_command": {
+					"command": [
+						"playsound item.bone_meal.use @a [r=10] ~ ~ ~",
+						"particle minecraft:crop_growth_emitter ~ ~ ~",
+						"summon xp_orb"
+					]
+				},
+				"decrement_stack": {}
+			}
+		}
+	}
+}

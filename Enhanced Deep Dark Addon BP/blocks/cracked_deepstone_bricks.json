@@ -1,0 +1,18 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:block": {
+		"description": {
+			"identifier": "dd:cracked_deepstone_bricks"
+		},
+		"components": {
+			"minecraft:block_light_absorption": 15,
+			"minecraft:destroy_time": 0.5,
+			"minecraft:map_color": "#4e5660",
+			"minecraft:creative_category": {
+				"category": "construction",
+				"group": "itemGroup.name.stoneBrick"
+			},
+			"minecraft:explosion_resistance": 50
+		}
+	}
+}

@@ -1,0 +1,61 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:block": {
+		"description": {
+			"identifier": "dd:whispering_bush"
+		},
+		"components": {
+			"minecraft:block_light_absorption": 0,
+			"minecraft:block_light_emission": 0.3,
+			"minecraft:creative_category": {
+				"category": "nature",
+				"group": "itemGroup.name.leaves"
+			},
+			"minecraft:destroy_time": 0.1,
+			"minecraft:explosion_resistance": 0.2,
+			"minecraft:map_color": "#3cc7cb",
+			"minecraft:loot": "loot_tables/empty.json",
+			"minecraft:on_step_on": {
+				"event": "whisper"
+			},
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "dd_whispering_bush",
+					"render_method": "blend"
+				}
+			},
+			"minecraft:random_ticking": {
+				"on_tick": {
+					"event": "whisper"
+				}
+			},
+			"minecraft:on_interact": {
+				"condition": "query.get_equipped_item_name('main_hand')=='experience_bottle'",
+				"event": "bonemeal"
+			}
+		},
+		"events": {
+			"whisper": {
+				"run_command": {
+					"command": [
+						"playsound bloom.sculk_catalyst @a ~ ~ ~ 1 1",
+						"fog @a [r=5] remove darkness"
+					]
+				}
+			},
+			"bonemeal": {
+				"spawn_loot": {
+					"table": "loot_tables/whispering_shrub.json"
+				},
+				"run_command": {
+					"command": [
+						"playsound item.bone_meal.use @a [r=10] ~ ~ ~",
+						"particle minecraft:crop_growth_emitter ~ ~ ~",
+						"summon xp_orb"
+					]
+				},
+				"decrement_stack": {}
+			}
+		}
+	}
+}

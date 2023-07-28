@@ -1,0 +1,65 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:block": {
+		"description": {
+			"identifier": "dd:soul_sucker",
+			"properties": {
+				"dd:active": [
+					0,
+					1
+				]
+			}
+		},
+		"components": {
+			"minecraft:block_light_absorption": 15,
+			"minecraft:map_color": "#202326",
+			"minecraft:creative_category": {
+				"category": "items",
+				"group": "items"
+			},
+			"minecraft:destroy_time": 1,
+			"minecraft:explosion_resistance": 100
+		},
+		"permutations": [
+			{
+				"condition": "query.block_property('dd:active') == 0",
+				"components": {}
+			},
+			{
+				"condition": "query.block_property('dd:active') == 1",
+				"components": {
+					"minecraft:ticking": {
+						"looping": true,
+						"on_tick": {
+							"event": "suck"
+						},
+						"range": [
+							0.5,
+							0.5
+						]
+					},
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "dd_soul_sucker_on",
+							"render_method": "opaque"
+						}
+					},
+					"minecraft:unit_cube": {}
+				}
+			}
+		],
+		"events": {
+			"suck": {
+				"set_block_property": {
+					"dd:active": 0
+				},
+				"run_command": {
+					"command": [
+						"damage @e [r=5] 2",
+						"playsound bloom.sculk_catalyst @a ~ ~ ~ 1 1.1"
+					]
+				}
+			}
+		}
+	}
+}
