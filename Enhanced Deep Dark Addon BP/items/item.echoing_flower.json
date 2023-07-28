@@ -1,0 +1,27 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:item": {
+		"description": {
+			"identifier": "dd:item.echoing_flower",
+			"category": "nature"
+		},
+		"components": {
+			"minecraft:icon": {
+				"texture": "dd_item.echoing_flower"
+			},
+			"minecraft:max_stack_size": 64,
+			"minecraft:creative_category": {
+				"parent": "itemGroup.name.flower"
+			},
+			"minecraft:block_placer": {
+				"block": "dd:echoing_flower",
+				"use_on": [
+					"sculk",
+					"dd:dead_sculk",
+					"dd:soul_magma",
+					"decorated_pot"
+				]
+			}
+		}
+	}
+}
