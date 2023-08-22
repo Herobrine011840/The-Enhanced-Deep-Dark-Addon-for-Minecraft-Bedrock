@@ -1,0 +1,56 @@
+{
+	"format_version": "1.17.0",
+	"minecraft:ore_feature": {
+		"description": {
+			"identifier": "dd:deepstone_ancient_city"
+		},
+		"count": 150,
+		"replace_rules": [
+			{
+				"places_block": {
+					"name": "dd:polished_deepstone"
+				},
+				"may_replace": [
+					"polished_deepslate"
+				]
+			},
+			{
+				"places_block": {
+					"name": "dd:deepstone_bricks"
+				},
+				"may_replace": [
+					"deepslate_bricks"
+				]
+			},
+			{
+				"places_block": {
+					"name": "dd:cracked_deepstone_bricks"
+				},
+				"may_replace": [
+					"cracked_deepslate_bricks"
+				]
+			},
+			{
+				"places_block": {
+					"name": "dd:chiseled_wardenstone"
+				},
+				"may_replace": [
+					"chiseled_deepslate"
+				]
+			},
+			{
+				"places_block": "dd:echo_glass",
+				"may_replace": [
+					"glass_pane"
+				]
+			},
+			{
+				"places_block": "dd:wardenstone_tiles",
+				"may_replace": [
+					"grass",
+					"dirt"
+				]
+			}
+		]
+	}
+}

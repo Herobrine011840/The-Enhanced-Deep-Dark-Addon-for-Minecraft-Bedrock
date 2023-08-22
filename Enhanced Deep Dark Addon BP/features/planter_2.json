@@ -1,0 +1,36 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:structure_template_feature": {
+		"description": {
+			"identifier": "dd:planter_2"
+		},
+		"structure_name": "echo_ruins/decorations/planters:planter_2",
+		"adjustment_radius": 16,
+		"constraints": {
+			"block_intersection": {
+				"block_allowlist": [
+					"grass",
+					"sand",
+					"sandstone",
+					"red_sandstone",
+					"stained_hardened_clay",
+					"dirt",
+					"stone",
+					"gravel",
+					"snow",
+					"packed_ice",
+					"snow_layer",
+					"powder_snow",
+					"vine",
+					"water",
+					"seagrass",
+					"minecraft:kelp",
+					"sea_pickle",
+					"mud",
+					"muddy_mangrove_roots",
+					"waterlily"
+				]
+			}
+		}
+	}
+}

@@ -1,0 +1,15 @@
+{
+	"format_version": "1.18.20",
+	"minecraft:single_block_feature": {
+		"description": {
+			"identifier": "dd:infested_deepstone"
+		},
+		"places_block": "dd:infested_deepstone_bricks",
+		"enforce_placement_rules": false,
+		"enforce_survivability_rules": false,
+		"may_replace": [
+			"dd:deepstone_bricks",
+			"dd:cracked_deepstone_bricks"
+		]
+	}
+}
