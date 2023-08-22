@@ -1,0 +1,92 @@
+[
+    {
+        "flipbook_texture": "textures/blocks/soul_magma",
+        "atlas_tile": "dd_soul_magma",
+        "ticks_per_frame": 10
+    },
+    {
+        "flipbook_texture": "textures/blocks/darkness_harbinger",
+        "atlas_tile": "dd_darkness_harbinger",
+        "ticks_per_frame": 20
+    },
+    {
+        "flipbook_texture": "textures/blocks/resonance_lights",
+        "atlas_tile": "dd_resonance_lights",
+        "ticks_per_frame": 15
+    },
+    {
+        "flipbook_texture": "textures/blocks/resonance_chamber_active",
+        "atlas_tile": "dd_resonance_chamber_on",
+        "ticks_per_frame": 8
+    },
+    {
+        "flipbook_texture": "textures/blocks/heartbeater_top_active",
+        "atlas_tile": "dd_heartbeater_on",
+        "ticks_per_frame": 5
+    },
+    {
+        "flipbook_texture": "textures/blocks/delay_resonance_chamber_active",
+        "atlas_tile": "dd_delay_resonance_chamber_active",
+        "ticks_per_frame": 8
+    },
+    {
+        "flipbook_texture": "textures/blocks/delay_resonance_chamber_2_active",
+        "atlas_tile": "dd_delay_resonance_chamber_2_active",
+        "ticks_per_frame": 8
+    },
+    {
+        "flipbook_texture": "textures/blocks/vibration_forcefield",
+        "atlas_tile": "dd_vibration_forcefield",
+        "ticks_per_frame": 0.1
+    },
+    {
+        "flipbook_texture": "textures/blocks/vibration_forcefield_controller_active",
+        "atlas_tile": "dd_vibration_forcefield_controller_active",
+        "ticks_per_frame": 10
+    },
+    {
+        "flipbook_texture": "textures/blocks/echo_crystal_block",
+        "atlas_tile": "dd_echo_crystal_block",
+        "ticks_per_frame": 60
+    },
+    {
+        "flipbook_texture": "textures/blocks/rgb_resonance_pulse_lamp",
+        "atlas_tile": "dd_rgb_resonance_pulse_lamp",
+        "ticks_per_frame": 20
+    },
+    {
+        "flipbook_texture": "textures/blocks/echo_shrieker_side",
+        "atlas_tile": "dd_echo_shrieker_side",
+        "ticks_per_frame": 10
+    },
+    {
+        "flipbook_texture": "textures/blocks/experience_multiplier_on",
+        "atlas_tile": "dd_experience_multiplier_on",
+        "ticks_per_frame": 0.1
+    },
+    {
+        "flipbook_texture": "textures/blocks/prism_platform_piece",
+        "atlas_tile": "dd_prism_platform_piece",
+        "ticks_per_frame": 2
+    },
+    {
+        "flipbook_texture": "textures/blocks/hollowed_stone_active",
+        "atlas_tile": "dd_hollowed_stone_active",
+        "ticks_per_frame": 10
+    },
+    {
+        "flipbook_texture": "textures/blocks/ancient_portal",
+        "atlas_tile": "dd_ancient_portal",
+        "ticks_per_frame": 1
+    },
+    {
+        "flipbook_texture": "textures/blocks/wireless_reciever_off",
+        "atlas_tile": "dd_wireless_receiver",
+        "ticks_per_frame": 2
+    },
+    {
+        "flipbook_texture": "textures/blocks/wireless_reciever_on",
+        "atlas_tile": "dd_wireless_receiver_on",
+        "ticks_per_frame": 1
+    }
+]
