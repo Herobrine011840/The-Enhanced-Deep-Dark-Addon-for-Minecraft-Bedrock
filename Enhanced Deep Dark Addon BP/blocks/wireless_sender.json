@@ -1,0 +1,120 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:block": {
+		"description": {
+			"identifier": "dd:wireless_sender",
+			"properties": {
+				"dd:active": [
+					0,
+					1,
+					2
+				]
+			}
+		},
+		"components": {
+			"minecraft:geometry": "geometry.wireless_sender",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "dd_wireless_sender",
+					"render_method": "alpha_test",
+					"ambient_occlusion": false,
+					"face_dimming": false
+				}
+			},
+			"minecraft:pick_collision": {
+				"origin": [
+					-8,
+					0,
+					-8
+				],
+				"size": [
+					16,
+					1,
+					16
+				]
+			},
+			"minecraft:entity_collision": {
+				"origin": [
+					-8,
+					0,
+					-8
+				],
+				"size": [
+					16,
+					1,
+					16
+				]
+			},
+			"minecraft:block_light_absorption": 0,
+			"minecraft:destroy_time": 0.75,
+			"minecraft:map_color": "#4e5660",
+			"minecraft:creative_category": {
+				"category": "items",
+				"group": "items"
+			},
+			"minecraft:explosion_resistance": 100
+		},
+		"permutations": [
+			{
+				"condition": "query.block_property('dd:active') == 0",
+				"components": {}
+			},
+			{
+				"condition": "query.block_property('dd:active') == 1",
+				"components": {
+					"minecraft:ticking": {
+						"looping": true,
+						"on_tick": {
+							"event": "send_signal"
+						},
+						"range": [
+							0.2,
+							0.2
+						]
+					},
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "dd_wireless_sender_on",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false,
+							"face_dimming": false
+						}
+					}
+				}
+			},
+			{
+				"condition": "query.block_property('dd:active') == 2",
+				"components": {
+					"minecraft:ticking": {
+						"looping": true,
+						"on_tick": {
+							"event": "deactivate"
+						},
+						"range": [
+							0.1,
+							0.1
+						]
+					}
+				}
+			}
+		],
+		"events": {
+			"send_signal": {
+				"run_command": {
+					"command": [
+						"fill ~-5 ~-5 ~-5 ~5 ~5 ~5 dd:wireless_receiver [\"dd:active\": 1] replace dd:wireless_receiver [\"dd:active\": 0]",
+						"playsound dig.fungus @a ~ ~ ~"
+					]
+				},
+				"set_block_property": {
+					"dd:active": 2
+				}
+			},
+			"deactivate": {
+				"set_block_property": {
+					"dd:active": 0
+				}
+			}
+		}
+	}
+}

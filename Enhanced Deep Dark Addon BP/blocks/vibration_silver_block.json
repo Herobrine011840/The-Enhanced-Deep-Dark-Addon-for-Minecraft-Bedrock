@@ -1,0 +1,90 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:block": {
+		"description": {
+			"identifier": "dd:vibration_silver_block",
+			"properties": {
+				"dd:active": [
+					0,
+					1,
+					2
+				]
+			}
+		},
+		"components": {
+			"minecraft:block_light_absorption": 15,
+			"minecraft:creative_category": {
+				"category": "construction",
+				"group": "construction"
+			},
+			"minecraft:destroy_time": 2,
+			"minecraft:explosion_resistance": 400,
+			"minecraft:map_color": "#80849b"
+		},
+		"permutations": [
+			{
+				"condition": "query.block_property('dd:active') == 0",
+				"components": {}
+			},
+			{
+				"condition": "query.block_property('dd:active') == 1",
+				"components": {
+					"minecraft:ticking": {
+						"looping": true,
+						"on_tick": {
+							"event": "check_for_activate"
+						},
+						"range": [
+							0.005,
+							0.005
+						]
+					}
+				}
+			},
+			{
+				"condition": "query.block_property('dd:active') == 2",
+				"components": {
+					"minecraft:ticking": {
+						"looping": true,
+						"on_tick": {
+							"event": "deactivate"
+						},
+						"range": [
+							0.3,
+							0.3
+						]
+					}
+				}
+			}
+		],
+		"events": {
+			"check_for_activate": {
+				"run_command": {
+					"command": [
+						"execute if block ~ ~1 ~ dd:resonance_chamber [\"dd:active\": 0, \"dd:unit\":1] run setblock ~ ~1 ~ dd:resonance_chamber [\"dd:active\": 1, \"dd:unit\":1]",
+						"execute if block ~1 ~ ~ dd:resonance_chamber [\"dd:active\": 0, \"dd:unit\":1] run setblock ~1 ~ ~ dd:resonance_chamber [\"dd:active\": 1, \"dd:unit\":1]",
+						"execute if block ~ ~ ~1 dd:resonance_chamber [\"dd:active\": 0, \"dd:unit\":1] run setblock ~ ~ ~1 dd:resonance_chamber [\"dd:active\": 1, \"dd:unit\":1]",
+						"execute if block ~ ~-1 ~ dd:resonance_chamber [\"dd:active\": 0, \"dd:unit\":1] run setblock ~ ~-1 ~ dd:resonance_chamber [\"dd:active\": 1, \"dd:unit\":1]",
+						"execute if block ~-1 ~ ~ dd:resonance_chamber [\"dd:active\": 0, \"dd:unit\":1] run setblock ~-1 ~ ~ dd:resonance_chamber [\"dd:active\": 1, \"dd:unit\":1]",
+						"execute if block ~ ~ ~-1 dd:resonance_chamber [\"dd:active\": 0, \"dd:unit\":1] run setblock ~ ~ ~-1 dd:resonance_chamber [\"dd:active\": 1, \"dd:unit\":1]",
+						"execute if block ~ ~1 ~ dd:vibration_silver_block [\"dd:active\": 0] run setblock ~ ~1 ~ dd:vibration_silver_block [\"dd:active\": 1]",
+						"execute if block ~1 ~ ~ dd:vibration_silver_block [\"dd:active\": 0] run setblock ~1 ~ ~ dd:vibration_silver_block [\"dd:active\": 1]",
+						"execute if block ~ ~ ~1 dd:vibration_silver_block [\"dd:active\": 0] run setblock ~ ~ ~1 dd:vibration_silver_block [\"dd:active\": 1]",
+						"execute if block ~ ~-1 ~ dd:vibration_silver_block [\"dd:active\": 0] run setblock ~ ~-1 ~ dd:vibration_silver_block [\"dd:active\": 1]",
+						"execute if block ~-1 ~ ~ dd:vibration_silver_block [\"dd:active\": 0] run setblock ~-1 ~ ~ dd:vibration_silver_block [\"dd:active\": 1]",
+						"execute if block ~ ~ ~-1 dd:vibration_silver_block [\"dd:active\": 0] run setblock ~ ~ ~-1 dd:vibration_silver_block [\"dd:active\": 1]",
+						"playsound dig.fungus @a ~ ~ ~"
+					]
+				},
+				"set_block_property": {
+					"dd:active": 2
+				}
+			},
+			"deactivate": {
+				"set_block_property": {
+					"dd:active": 0
+				}
+			}
+		}
+	}
+}

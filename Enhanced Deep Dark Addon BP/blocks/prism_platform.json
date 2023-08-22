@@ -1,0 +1,124 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:block": {
+		"description": {
+			"identifier": "dd:prism_platform",
+			"properties": {
+				"dd:active": [
+					0,
+					1,
+					2
+				],
+				"dd:platform_type": [
+					0,
+					1
+				]
+			}
+		},
+		"components": {
+			"minecraft:block_light_absorption": 15,
+			"minecraft:map_color": "#202326",
+			"minecraft:creative_category": {
+				"category": "items",
+				"group": "items"
+			},
+			"minecraft:destroy_time": 1,
+			"minecraft:explosion_resistance": 100
+		},
+		"permutations": [
+			{
+				"condition": "query.block_property('dd:platform_type') == 0",
+				"components": {}
+			},
+			{
+				"condition": "query.block_property('dd:platform_type') == 1",
+				"components": {
+					"minecraft:pick_collision": false,
+					"minecraft:ticking": {
+						"looping": true,
+						"range": [
+							2,
+							2
+						],
+						"on_tick": {
+							"event": "despawn"
+						}
+					},
+					"minecraft:unit_cube": {},
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "dd_prism_platform_piece",
+							"render_method": "blend",
+							"ambient_occlusion": false,
+							"face_dimming": false
+						}
+					},
+					"minecraft:block_light_absorption": 0
+				}
+			},
+			{
+				"condition": "query.block_property('dd:active') == 0",
+				"components": {}
+			},
+			{
+				"condition": "query.block_property('dd:active') == 1",
+				"components": {
+					"minecraft:ticking": {
+						"looping": true,
+						"on_tick": {
+							"event": "start_platform"
+						},
+						"range": [
+							0.1,
+							0.1
+						]
+					}
+				}
+			},
+			{
+				"condition": "query.block_property('dd:active') == 2",
+				"components": {
+					"minecraft:ticking": {
+						"looping": true,
+						"on_tick": {
+							"event": "platform"
+						},
+						"range": [
+							2,
+							2
+						]
+					}
+				}
+			}
+		],
+		"events": {
+			"platform": {
+				"run_command": {
+					"command": [
+						"playsound beacon.deactivate @a"
+					]
+				},
+				"set_block_property": {
+					"dd:active": 0
+				}
+			},
+			"start_platform": {
+				"set_block_property": {
+					"dd:active": 2
+				},
+				"run_command": {
+					"command": [
+						"playsound beacon.activate @a",
+						"fill ~-1 ~ ~-2 ~1 ~ ~2 dd:prism_platform [\"dd:platform_type\": 1] replace air",
+						"fill ~-2 ~ ~-1 ~2 ~ ~1 dd:prism_platform [\"dd:platform_type\": 1] replace air"
+					]
+				}
+			},
+			"despawn": {
+				"set_block": {
+					"block_type": "air"
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,78 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:block": {
+		"description": {
+			"identifier": "dd:safe_carved_deepslate_pillar",
+			"properties": {
+				"bridge:pillar_axis": [
+					0,
+					1,
+					2
+				]
+			}
+		},
+		"permutations": [
+			{
+				"condition": "query.block_property('bridge:pillar_axis') == 0",
+				"components": {}
+			},
+			{
+				"condition": "query.block_property('bridge:pillar_axis') == 1",
+				"components": {
+					"minecraft:rotation": [
+						90,
+						0,
+						0
+					],
+					"minecraft:unit_cube": {}
+				}
+			},
+			{
+				"condition": "query.block_property('bridge:pillar_axis') == 2",
+				"components": {
+					"minecraft:rotation": [
+						0,
+						90,
+						-90
+					],
+					"minecraft:unit_cube": {}
+				}
+			}
+		],
+		"components": {
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "dd_carved_deepslate_pillar_safe",
+					"render_method": "opaque"
+				},
+				"down": {
+					"texture": "dd_carved_deepslate_pillar_top",
+					"render_method": "opaque"
+				},
+				"up": {
+					"texture": "dd_carved_deepslate_pillar_top",
+					"render_method": "opaque"
+				}
+			},
+			"minecraft:on_player_placing": {
+				"event": "on_player_placing",
+				"target": "self"
+			},
+			"minecraft:destroy_time": 1,
+			"minecraft:block_light_absorption": 15,
+			"minecraft:creative_category": {
+				"category": "construction",
+				"group": "itemGroup.name.stoneBrick"
+			},
+			"minecraft:explosion_resistance": 60,
+			"minecraft:map_color": "#585858"
+		},
+		"events": {
+			"on_player_placing": {
+				"set_block_property": {
+					"bridge:pillar_axis": "math.floor(query.block_face/2)"
+				}
+			}
+		}
+	}
+}

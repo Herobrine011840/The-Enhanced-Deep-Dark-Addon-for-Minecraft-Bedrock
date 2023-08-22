@@ -1,0 +1,18 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:block": {
+		"description": {
+			"identifier": "dd:depth_shale_bricks"
+		},
+		"components": {
+			"minecraft:block_light_absorption": 15,
+			"minecraft:destroy_time": 0.2,
+			"minecraft:map_color": "#5a66af",
+			"minecraft:creative_category": {
+				"category": "construction",
+				"group": "itemGroup.name.stoneBrick"
+			},
+			"minecraft:explosion_resistance": 4000
+		}
+	}
+}

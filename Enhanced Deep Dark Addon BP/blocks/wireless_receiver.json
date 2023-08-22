@@ -1,0 +1,133 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:block": {
+		"description": {
+			"identifier": "dd:wireless_receiver",
+			"properties": {
+				"dd:active": [
+					0,
+					1,
+					2
+				]
+			}
+		},
+		"components": {
+			"minecraft:geometry": "geometry.wireless_receiver",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "dd_wireless_receiver",
+					"render_method": "alpha_test",
+					"ambient_occlusion": false,
+					"face_dimming": false
+				}
+			},
+			"minecraft:pick_collision": {
+				"origin": [
+					-8,
+					0,
+					-8
+				],
+				"size": [
+					16,
+					1,
+					16
+				]
+			},
+			"minecraft:entity_collision": {
+				"origin": [
+					-8,
+					0,
+					-8
+				],
+				"size": [
+					16,
+					1,
+					16
+				]
+			},
+			"minecraft:block_light_absorption": 0,
+			"minecraft:destroy_time": 0.75,
+			"minecraft:map_color": "#4e5660",
+			"minecraft:creative_category": {
+				"category": "items",
+				"group": "items"
+			},
+			"minecraft:explosion_resistance": 100
+		},
+		"permutations": [
+			{
+				"condition": "query.block_property('dd:active') == 0",
+				"components": {}
+			},
+			{
+				"condition": "query.block_property('dd:active') == 1",
+				"components": {
+					"minecraft:ticking": {
+						"looping": true,
+						"on_tick": {
+							"event": "receive_signal"
+						},
+						"range": [
+							0.2,
+							0.2
+						]
+					},
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "dd_wireless_receiver_on",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false,
+							"face_dimming": false
+						}
+					}
+				}
+			},
+			{
+				"condition": "query.block_property('dd:active') == 2",
+				"components": {
+					"minecraft:ticking": {
+						"looping": true,
+						"on_tick": {
+							"event": "deactivate"
+						},
+						"range": [
+							1,
+							1
+						]
+					},
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "dd_wireless_receiver_on",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false,
+							"face_dimming": false
+						}
+					}
+				}
+			}
+		],
+		"events": {
+			"receive_signal": {
+				"run_command": {
+					"command": [
+						"execute if block ~ ~-1 ~ dd:resonance_chamber [\"dd:active\": 0, \"dd:unit\":1] run setblock ~ ~-1 ~ dd:resonance_chamber [\"dd:active\": 1, \"dd:unit\":1]",
+						"playsound power.on.sculk_sensor @a ~ ~ ~"
+					]
+				},
+				"set_block_property": {
+					"dd:active": 2
+				}
+			},
+			"deactivate": {
+				"run_command": {
+					"command": [
+						"playsound power.off.sculk_sensor @a ~ ~ ~"
+					]
+				},
+				"set_block_property": {
+					"dd:active": 0
+				}
+			}
+		}
+	}
+}

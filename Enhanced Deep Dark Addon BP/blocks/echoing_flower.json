@@ -1,0 +1,76 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:block": {
+		"description": {
+			"identifier": "dd:echoing_flower"
+		},
+		"components": {
+			"minecraft:geometry": "geometry.echoing_flower",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "dd_echoing_flower",
+					"render_method": "alpha_test",
+					"ambient_occlusion": false,
+					"face_dimming": false
+				}
+			},
+			"minecraft:entity_collision": false,
+			"minecraft:pick_collision": {
+				"origin": [
+					-3,
+					0,
+					-3
+				],
+				"size": [
+					6,
+					16,
+					6
+				]
+			},
+			"minecraft:block_light_absorption": 0,
+			"minecraft:map_color": "#77ecef",
+			"minecraft:creative_category": {
+				"category": "commands",
+				"group": "commands"
+			},
+			"minecraft:block_light_emission": 0.1,
+			"minecraft:destroy_time": 1e-7,
+			"minecraft:explosion_resistance": 0.2,
+			"minecraft:loot": "loot_tables/echoing_flower.json",
+			"minecraft:placement_filter": {
+				"conditions": [
+					{
+						"allowed_faces": [
+							"up"
+						],
+						"block_filter": [
+							"sculk",
+							"dd:dead_sculk",
+							"dd:soul_magma",
+							"decorated_pot"
+						]
+					}
+				]
+			},
+			"minecraft:on_interact": {
+				"condition": "query.get_equipped_item_name('main_hand')=='experience_bottle'",
+				"event": "bonemeal"
+			}
+		},
+		"events": {
+			"bonemeal": {
+				"spawn_loot": {
+					"table": "loot_tables/echoing_flower_crop.json"
+				},
+				"run_command": {
+					"command": [
+						"playsound item.bone_meal.use @a [r=10] ~ ~ ~",
+						"particle minecraft:crop_growth_emitter ~ ~ ~",
+						"summon xp_orb"
+					]
+				},
+				"decrement_stack": {}
+			}
+		}
+	}
+}

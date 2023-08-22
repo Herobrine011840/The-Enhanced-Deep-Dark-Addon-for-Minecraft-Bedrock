@@ -1,0 +1,402 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:block": {
+		"description": {
+			"identifier": "dd:depth_shale",
+			"properties": {
+				"dd:is_spawning": [
+					0,
+					1,
+					2,
+					3
+				]
+			}
+		},
+		"components": {
+			"minecraft:block_light_absorption": 15,
+			"minecraft:destroy_time": 0.2,
+			"minecraft:map_color": "#5a66af",
+			"minecraft:creative_category": {
+				"category": "nature",
+				"group": "itemGroup.name.stone"
+			},
+			"minecraft:explosion_resistance": 4000,
+			"minecraft:on_player_placing": {
+				"event": "place_normal"
+			}
+		},
+		"permutations": [
+			{
+				"condition": "query.block_property('dd:is_spawning') == 0",
+				"components": {
+					"minecraft:ticking": {
+						"looping": true,
+						"range": [
+							0.05,
+							0.1
+						],
+						"on_tick": {
+							"event": "spawn_blocks"
+						}
+					}
+				}
+			},
+			{
+				"condition": "query.block_property('dd:is_spawning') == 2",
+				"components": {
+					"minecraft:ticking": {
+						"looping": true,
+						"range": [
+							0.05,
+							0.1
+						],
+						"on_tick": {
+							"event": "spawn_pillar"
+						}
+					}
+				}
+			},
+			{
+				"condition": "query.block_property('dd:is_spawning') == 3",
+				"components": {
+					"minecraft:ticking": {
+						"looping": true,
+						"range": [
+							0.05,
+							0.1
+						],
+						"on_tick": {
+							"event": "spawn_from_portal"
+						}
+					}
+				}
+			}
+		],
+		"events": {
+			"place_normal": {
+				"set_block_property": {
+					"dd:is_spawning": 1
+				}
+			},
+			"spawn_blocks": {
+				"randomize": [
+					{
+						"weight": 1,
+						"set_block_property": {
+							"dd:is_spawning": 1
+						}
+					},
+					{
+						"weight": 1,
+						"set_block_property": {
+							"dd:is_spawning": 2
+						}
+					},
+					{
+						"weight": 1,
+						"run_command": {
+							"command": [
+								"execute if block ~ ~1 ~ deepslate run setblock ~ ~1 ~ dd:depth_shale",
+								"execute if block ~ ~1 ~ deepslate_tiles run setblock ~ ~1 ~ dd:depth_shale",
+								"execute if block ~ ~1 ~ cracked_deepslate_tiles run setblock ~ ~1 ~ dd:depth_shale",
+								"execute if block ~ ~1 ~ dd:deepstone_bricks run setblock ~ ~1 ~ dd:depth_shale",
+								"execute if block ~ ~1 ~ dd:cracked_deepstone_bricks run setblock ~ ~1 ~ dd:depth_shale",
+								"execute if block ~ ~1 ~ cobbled_deepslate run setblock ~ ~1 ~ dd:depth_shale"
+							]
+						},
+						"trigger": "spawn_blocks_2"
+					},
+					{
+						"weight": 1,
+						"run_command": {
+							"command": [
+								"execute if block ~ ~-1 ~ deepslate run setblock ~ ~-1 ~ dd:depth_shale",
+								"execute if block ~ ~-1 ~ deepslate_tiles run setblock ~ ~-1 ~ dd:depth_shale",
+								"execute if block ~ ~-1 ~ cracked_deepslate_tiles run setblock ~ ~-1 ~ dd:depth_shale",
+								"execute if block ~ ~-1 ~ dd:deepstone_bricks run setblock ~ ~-1 ~ dd:depth_shale",
+								"execute if block ~ ~-1 ~ dd:cracked_deepstone_bricks run setblock ~ ~-1 ~ dd:depth_shale",
+								"execute if block ~ ~-1 ~ cobbled_deepslate run setblock ~ ~-1 ~ dd:depth_shale"
+							]
+						},
+						"trigger": "spawn_blocks_2"
+					},
+					{
+						"weight": 1,
+						"run_command": {
+							"command": [
+								"execute if block ~1 ~ ~ deepslate run setblock ~1 ~ ~ dd:depth_shale",
+								"execute if block ~1 ~ ~ deepslate_tiles run setblock ~1 ~ ~ dd:depth_shale",
+								"execute if block ~1 ~ ~ cracked_deepslate_tiles run setblock ~1 ~ ~ dd:depth_shale",
+								"execute if block ~1 ~ ~ dd:deepstone_bricks run setblock ~1 ~ ~ dd:depth_shale",
+								"execute if block ~1 ~ ~ dd:cracked_deepstone_bricks run setblock ~1 ~ ~ dd:depth_shale",
+								"execute if block ~1 ~ ~ cobbled_deepslate run setblock ~1 ~ ~ dd:depth_shale"
+							]
+						},
+						"trigger": "spawn_blocks_2"
+					},
+					{
+						"weight": 1,
+						"run_command": {
+							"command": [
+								"execute if block ~-1 ~ ~ deepslate run setblock ~-1 ~ ~ dd:depth_shale",
+								"execute if block ~-1 ~ ~ deepslate_tiles run setblock ~-1 ~ ~ dd:depth_shale",
+								"execute if block ~-1 ~ ~ cracked_deepslate_tiles run setblock ~-1 ~ ~ dd:depth_shale",
+								"execute if block ~-1 ~ ~ dd:deepstone_bricks run setblock ~-1 ~ ~ dd:depth_shale",
+								"execute if block ~-1 ~ ~ dd:cracked_deepstone_bricks run setblock ~-1 ~ ~ dd:depth_shale",
+								"execute if block ~-1 ~ ~ cobbled_deepslate run setblock ~-1 ~ ~ dd:depth_shale"
+							]
+						},
+						"trigger": "spawn_blocks_2"
+					},
+					{
+						"weight": 1,
+						"run_command": {
+							"command": [
+								"execute if block ~ ~ ~1 deepslate run setblock ~ ~ ~1 dd:depth_shale",
+								"execute if block ~ ~ ~1 deepslate_tiles run setblock ~ ~ ~1 dd:depth_shale",
+								"execute if block ~ ~ ~1 cracked_deepslate_tiles run setblock ~ ~ ~1 dd:depth_shale",
+								"execute if block ~ ~ ~1 dd:deepstone_bricks run setblock ~ ~ ~1 dd:depth_shale",
+								"execute if block ~ ~ ~1 dd:cracked_deepstone_bricks run setblock ~ ~ ~1 dd:depth_shale",
+								"execute if block ~ ~ ~1 cobbled_deepslate run setblock ~ ~ ~1 dd:depth_shale"
+							]
+						},
+						"trigger": "spawn_blocks_2"
+					},
+					{
+						"weight": 1,
+						"run_command": {
+							"command": [
+								"execute if block ~ ~ ~-1 deepslate run setblock ~ ~ ~-1 dd:depth_shale",
+								"execute if block ~ ~ ~-1 deepslate_tiles run setblock ~ ~ ~-1 dd:depth_shale",
+								"execute if block ~ ~ ~-1 cracked_deepslate_tiles run setblock ~ ~ ~-1 dd:depth_shale",
+								"execute if block ~ ~ ~-1 dd:deepstone_bricks run setblock ~ ~ ~-1 dd:depth_shale",
+								"execute if block ~ ~ ~-1 dd:cracked_deepstone_bricks run setblock ~ ~ ~-1 dd:depth_shale",
+								"execute if block ~ ~ ~-1 cobbled_deepslate run setblock ~ ~ ~-1 dd:depth_shale"
+							]
+						},
+						"trigger": "spawn_blocks_2"
+					}
+				]
+			},
+			"spawn_blocks_2": {
+				"randomize": [
+					{
+						"weight": 19,
+						"set_block_property": {
+							"dd:is_spawning": 1
+						},
+						"run_command": {
+							"command": [
+								"execute if block ~ ~1 ~ deepslate run setblock ~ ~1 ~ dd:depth_shale",
+								"execute if block ~ ~1 ~ deepslate_tiles run setblock ~ ~1 ~ dd:depth_shale",
+								"execute if block ~ ~1 ~ cracked_deepslate_tiles run setblock ~ ~1 ~ dd:depth_shale",
+								"execute if block ~ ~1 ~ dd:cracked_deepstone_bricks run setblock ~ ~1 ~ dd:depth_shale",
+								"execute if block ~ ~1 ~ dd:depth_shale run setblock ~ ~1 ~ dd:depth_shale",
+								"execute if block ~ ~1 ~ cobbled_deepslate run setblock ~ ~1 ~ dd:depth_shale"
+							]
+						}
+					},
+					{
+						"weight": 39,
+						"set_block_property": {
+							"dd:is_spawning": 1
+						},
+						"run_command": {
+							"command": [
+								"execute if block ~ ~-1 ~ deepslate run setblock ~ ~-1 ~ dd:depth_shale",
+								"execute if block ~ ~-1 ~ deepslate_tiles run setblock ~ ~-1 ~ dd:depth_shale",
+								"execute if block ~ ~-1 ~ cracked_deepslate_tiles run setblock ~ ~-1 ~ dd:depth_shale",
+								"execute if block ~ ~-1 ~ dd:deepstone_bricks run setblock ~ ~-1 ~ dd:depth_shale",
+								"execute if block ~ ~-1 ~ dd:cracked_deepstone_bricks run setblock ~ ~-1 ~ dd:depth_shale",
+								"execute if block ~ ~-1 ~ cobbled_deepslate run setblock ~ ~-1 ~ dd:depth_shale",
+								"execute if block ~ ~-1 ~ air run setblock ~ ~-1 ~ dd:weeping_depth_leaves",
+								"execute if block ~ ~-1 ~ sculk_vein run setblock ~ ~-1 ~ dd:weeping_depth_leaves"
+							]
+						}
+					},
+					{
+						"weight": 29,
+						"set_block_property": {
+							"dd:is_spawning": 1
+						},
+						"run_command": {
+							"command": [
+								"execute if block ~1 ~ ~ deepslate run setblock ~1 ~ ~ dd:depth_shale",
+								"execute if block ~1 ~ ~ deepslate_tiles run setblock ~1 ~ ~ dd:depth_shale",
+								"execute if block ~1 ~ ~ cracked_deepslate_tiles run setblock ~1 ~ ~ dd:depth_shale",
+								"execute if block ~1 ~ ~ dd:deepstone_bricks run setblock ~1 ~ ~ dd:depth_shale",
+								"execute if block ~1 ~ ~ dd:depth_shale run setblock ~1 ~ ~ dd:depth_shale",
+								"execute if block ~1 ~ ~ cobbled_deepslate run setblock ~1 ~ ~ dd:depth_shale"
+							]
+						}
+					},
+					{
+						"weight": 29,
+						"set_block_property": {
+							"dd:is_spawning": 1
+						},
+						"run_command": {
+							"command": [
+								"execute if block ~-1 ~ ~ deepslate run setblock ~-1 ~ ~ dd:depth_shale",
+								"execute if block ~-1 ~ ~ deepslate_tiles run setblock ~-1 ~ ~ dd:depth_shale",
+								"execute if block ~-1 ~ ~ cracked_deepslate_tiles run setblock ~-1 ~ ~ dd:depth_shale",
+								"execute if block ~-1 ~ ~ dd:deepstone_bricks run setblock ~-1 ~ ~ dd:depth_shale",
+								"execute if block ~-1 ~ ~ dd:depth_shale run setblock ~-1 ~ ~ dd:depth_shale",
+								"execute if block ~-1 ~ ~ cobbled_deepslate run setblock ~-1 ~ ~ dd:depth_shale"
+							]
+						}
+					},
+					{
+						"weight": 29,
+						"set_block_property": {
+							"dd:is_spawning": 1
+						},
+						"run_command": {
+							"command": [
+								"execute if block ~ ~ ~1 deepslate run setblock ~ ~ ~1 dd:depth_shale",
+								"execute if block ~ ~ ~1 deepslate_tiles run setblock ~ ~ ~1 dd:depth_shale",
+								"execute if block ~ ~ ~1 cracked_deepslate_tiles run setblock ~ ~ ~1 dd:depth_shale",
+								"execute if block ~ ~ ~1 dd:deepstone_bricks run setblock ~ ~ ~1 dd:depth_shale",
+								"execute if block ~ ~ ~1 dd:depth_shale run setblock ~ ~ ~1 dd:depth_shale",
+								"execute if block ~ ~ ~1 cobbled_deepslate run setblock ~ ~ ~1 dd:depth_shale"
+							]
+						}
+					},
+					{
+						"weight": 29,
+						"set_block_property": {
+							"dd:is_spawning": 1
+						},
+						"run_command": {
+							"command": [
+								"execute if block ~ ~ ~-1 deepslate run setblock ~ ~ ~-1 dd:depth_shale",
+								"execute if block ~ ~ ~-1 deepslate_tiles run setblock ~ ~ ~-1 dd:depth_shale",
+								"execute if block ~ ~ ~-1 cracked_deepslate_tiles run setblock ~ ~ ~-1 dd:depth_shale",
+								"execute if block ~ ~ ~-1 dd:deepstone_bricks run setblock ~ ~ ~-1 dd:depth_shale",
+								"execute if block ~ ~ ~-1 dd:depth_shale run setblock ~ ~ ~-1 dd:depth_shale",
+								"execute if block ~ ~ ~-1 cobbled_deepslate run setblock ~ ~ ~-1 dd:depth_shale"
+							]
+						}
+					},
+					{
+						"weight": 1,
+						"trigger": "rare_block"
+					}
+				]
+			},
+			"rare_block": {
+				"randomize": [
+					{
+						"weight": 1,
+						"set_block": {
+							"block_type": "dd:resonance_plates"
+						}
+					},
+					{
+						"weight": 19,
+						"set_block": {
+							"block_type": "dd:wardenstone"
+						}
+					}
+				]
+			},
+			"spawn_pillar": {
+				"randomize": [
+					{
+						"weight": 1,
+						"run_command": {
+							"command": [
+								"execute if block ~ ~-1 ~ air run setblock ~ ~-1 ~ dd:depth_shale [\"dd:is_spawning\":2]",
+								"execute if block ~ ~1 ~ air run setblock ~ ~1 ~ dd:depth_shale [\"dd:is_spawning\":2]"
+							]
+						},
+						"set_block_property": {
+							"dd:is_spawning": 1
+						}
+					},
+					{
+						"weight": 1,
+						"set_block_property": {
+							"dd:is_spawning": 1
+						}
+					}
+				]
+			},
+			"spawn_from_portal": {
+				"randomize": [
+					{
+						"weight": 2,
+						"run_command": {
+							"command": [
+								"execute if block ~ ~-1 ~ deepslate run setblock ~ ~-1 ~ dd:depth_shale",
+								"execute if block ~ ~-1 ~ deepslate_tiles run setblock ~ ~-1 ~ dd:depth_shale",
+								"execute if block ~ ~-1 ~ cracked_deepslate_tiles run setblock ~ ~-1 ~ dd:depth_shale",
+								"execute if block ~ ~-1 ~ dd:deepstone_bricks run setblock ~ ~-1 ~ dd:depth_shale",
+								"execute if block ~ ~-1 ~ dd:depth_shale run setblock ~ ~-1 ~ dd:depth_shale",
+								"execute if block ~ ~-1 ~ cobbled_deepslate run setblock ~ ~-1 ~ dd:depth_shale"
+							]
+						}
+					},
+					{
+						"weight": 2,
+						"run_command": {
+							"command": [
+								"execute if block ~1 ~ ~ deepslate run setblock ~1 ~ ~ dd:depth_shale",
+								"execute if block ~1 ~ ~ deepslate_tiles run setblock ~1 ~ ~ dd:depth_shale",
+								"execute if block ~1 ~ ~ cracked_deepslate_tiles run setblock ~1 ~ ~ dd:depth_shale",
+								"execute if block ~1 ~ ~ dd:deepstone_bricks run setblock ~1 ~ ~ dd:depth_shale",
+								"execute if block ~1 ~ ~ dd:depth_shale run setblock ~1 ~ ~ dd:depth_shale",
+								"execute if block ~1 ~ ~ cobbled_deepslate run setblock ~1 ~ ~ dd:depth_shale"
+							]
+						}
+					},
+					{
+						"weight": 2,
+						"run_command": {
+							"command": [
+								"execute if block ~-1 ~ ~ deepslate run setblock ~-1 ~ ~ dd:depth_shale",
+								"execute if block ~-1 ~ ~ deepslate_tiles run setblock ~-1 ~ ~ dd:depth_shale",
+								"execute if block ~-1 ~ ~ cracked_deepslate_tiles run setblock ~-1 ~ ~ dd:depth_shale",
+								"execute if block ~-1 ~ ~ dd:deepstone_bricks run setblock ~-1 ~ ~ dd:depth_shale",
+								"execute if block ~-1 ~ ~ dd:depth_shale run setblock ~-1 ~ ~ dd:depth_shale",
+								"execute if block ~-1 ~ ~ cobbled_deepslate run setblock ~-1 ~ ~ dd:depth_shale"
+							]
+						}
+					},
+					{
+						"weight": 2,
+						"run_command": {
+							"command": [
+								"execute if block ~ ~ ~1 deepslate run setblock ~ ~ ~1 dd:depth_shale",
+								"execute if block ~ ~ ~1 deepslate_tiles run setblock ~ ~ ~1 dd:depth_shale",
+								"execute if block ~ ~ ~1 cracked_deepslate_tiles run setblock ~ ~ ~1 dd:depth_shale",
+								"execute if block ~ ~ ~1 dd:deepstone_bricks run setblock ~ ~ ~1 dd:depth_shale",
+								"execute if block ~ ~ ~1 dd:depth_shale run setblock ~ ~ ~1 dd:depth_shale",
+								"execute if block ~ ~ ~1 cobbled_deepslate run setblock ~ ~ ~1 dd:depth_shale"
+							]
+						}
+					},
+					{
+						"weight": 2,
+						"run_command": {
+							"command": [
+								"execute if block ~ ~ ~-1 deepslate run setblock ~ ~ ~-1 dd:depth_shale",
+								"execute if block ~ ~ ~-1 deepslate_tiles run setblock ~ ~ ~-1 dd:depth_shale",
+								"execute if block ~ ~ ~-1 cracked_deepslate_tiles run setblock ~ ~ ~-1 dd:depth_shale",
+								"execute if block ~ ~ ~-1 dd:deepstone_bricks run setblock ~ ~ ~-1 dd:depth_shale",
+								"execute if block ~ ~ ~-1 dd:depth_shale run setblock ~ ~ ~-1 dd:depth_shale",
+								"execute if block ~ ~ ~-1 cobbled_deepslate run setblock ~ ~ ~-1 dd:depth_shale"
+							]
+						}
+					},
+					{
+						"weight": 1,
+						"set_block_property": {
+							"dd:is_spawning": 1
+						}
+					}
+				]
+			}
+		}
+	}
+}
