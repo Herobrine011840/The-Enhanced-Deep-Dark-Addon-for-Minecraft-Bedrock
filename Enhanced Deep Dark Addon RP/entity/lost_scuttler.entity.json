@@ -1,0 +1,32 @@
+{
+	"format_version": "1.8.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "dd:lost_scuttler",
+			"materials": {
+				"default": "entity_alphatest"
+			},
+			"textures": {
+				"default": "textures/entity/lost_scuttler"
+			},
+			"geometry": {
+				"default": "geometry.lost_scuttler"
+			},
+			"animations": {
+				"move": "animation.lost_scuttler.move"
+			},
+			"animation_controllers": [
+				{
+					"move": "controller.animation.endermite.move"
+				}
+			],
+			"render_controllers": [
+				"controller.render.default"
+			],
+			"spawn_egg": {
+				"base_color": "#0d1217",
+				"overlay_color": "#49eff4"
+			}
+		}
+	}
+}
