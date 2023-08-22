@@ -1,0 +1,31 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "dd:resonance_pulse_lamp"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"S": {
+				"item": "sculk"
+			},
+			"E": {
+				"item": "dd:echo_dust"
+			},
+			"G": {
+				"item": "glowstone_dust"
+			}
+		},
+		"pattern": [
+			"SGS",
+			"GEG",
+			"SGS"
+		],
+		"result": {
+			"count": 2,
+			"item": "dd:resonance_pulse_lamp"
+		}
+	}
+}

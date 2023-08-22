@@ -1,0 +1,33 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_shapeless": {
+		"description": {
+			"identifier": "dd:fixing_reverberating_reactor"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"ingredients": [
+			{
+				"count": 1,
+				"item": "dd:broken_reverberating_reactor"
+			},
+			{
+				"count": 4,
+				"item": "dd:wardenstone"
+			},
+			{
+				"count": 3,
+				"item": "amethyst_block"
+			},
+			{
+				"count": 1,
+				"item": "netherite_scrap"
+			}
+		],
+		"result": {
+			"count": 1,
+			"item": "dd:reverberating_reactor"
+		}
+	}
+}

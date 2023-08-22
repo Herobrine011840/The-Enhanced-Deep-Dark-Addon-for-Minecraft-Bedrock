@@ -1,0 +1,34 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "dd:vibration_battery"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"V": {
+				"item": "dd:vibration_silver_ingot"
+			},
+			"E": {
+				"item": "experience_bottle"
+			},
+			"D": {
+				"item": "dd:depth_shale"
+			},
+			"I": {
+				"item": "iron_ingot"
+			}
+		},
+		"pattern": [
+			"DDD",
+			"IEI",
+			"IVI"
+		],
+		"result": {
+			"count": 1,
+			"item": "dd:vibration_battery"
+		}
+	}
+}

@@ -1,0 +1,33 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_shapeless": {
+		"description": {
+			"identifier": "dd:echo_shard_from_template"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"ingredients": [
+			{
+				"count": 1,
+				"item": "amethyst_shard"
+			},
+			{
+				"count": 1,
+				"item": "dd:echo_shard_crafting_template"
+			},
+			{
+				"count": 1,
+				"item": "dd:item.tendril_roots"
+			},
+			{
+				"count": 1,
+				"item": "diamond"
+			}
+		],
+		"result": {
+			"count": 1,
+			"item": "echo_shard"
+		}
+	}
+}

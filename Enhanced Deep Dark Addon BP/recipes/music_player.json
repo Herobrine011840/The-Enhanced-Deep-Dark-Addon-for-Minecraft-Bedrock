@@ -1,0 +1,37 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "dd:music_player"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"G": {
+				"item": "dd:echo_glass"
+			},
+			"N": {
+				"item": "noteblock"
+			},
+			"P": {
+				"item": "dd:sculk_prism"
+			},
+			"W": {
+				"item": "dd:wardenstone"
+			},
+			"V": {
+				"item": "dd:vibration_silver_ingot"
+			}
+		},
+		"pattern": [
+			"WGW",
+			"VNV",
+			"WPW"
+		],
+		"result": {
+			"count": 1,
+			"item": "dd:music_player"
+		}
+	}
+}

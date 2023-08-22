@@ -1,0 +1,29 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_shapeless": {
+		"description": {
+			"identifier": "dd:fixing_delay_resonance_chamber"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"ingredients": [
+			{
+				"count": 1,
+				"item": "dd:broken_delay_resonance_chamber"
+			},
+			{
+				"count": 2,
+				"item": "dd:wardenstone"
+			},
+			{
+				"count": 5,
+				"item": "amethyst_shard"
+			}
+		],
+		"result": {
+			"count": 1,
+			"item": "dd:delay_resonance_chamber"
+		}
+	}
+}

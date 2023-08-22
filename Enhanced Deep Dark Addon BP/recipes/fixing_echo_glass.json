@@ -1,0 +1,25 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_shapeless": {
+		"description": {
+			"identifier": "dd:fixing_echo_glass"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"ingredients": [
+			{
+				"count": 1,
+				"item": "dd:broken_echo_glass"
+			},
+			{
+				"count": 4,
+				"item": "glass"
+			}
+		],
+		"result": {
+			"count": 1,
+			"item": "dd:echo_glass"
+		}
+	}
+}

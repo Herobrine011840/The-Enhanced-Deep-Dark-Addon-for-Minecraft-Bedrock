@@ -1,0 +1,23 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "dd:wardenstone_slab"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"W": {
+				"item": "dd:wardenstone"
+			}
+		},
+		"pattern": [
+			"WWW"
+		],
+		"result": {
+			"count": 6,
+			"item": "dd:wardenstone_slab"
+		}
+	}
+}

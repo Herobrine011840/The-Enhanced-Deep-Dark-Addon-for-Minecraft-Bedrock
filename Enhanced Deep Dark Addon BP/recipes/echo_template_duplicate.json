@@ -1,0 +1,31 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "dd:echo_template_duplicate"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"D": {
+				"item": "diamond"
+			},
+			"E": {
+				"item": "dd:echo_shard_crafting_template"
+			},
+			"W": {
+				"item": "dd:wardenstone"
+			}
+		},
+		"pattern": [
+			"DED",
+			"DWD",
+			"DDD"
+		],
+		"result": {
+			"count": 10,
+			"item": "dd:echo_shard_crafting_template"
+		}
+	}
+}

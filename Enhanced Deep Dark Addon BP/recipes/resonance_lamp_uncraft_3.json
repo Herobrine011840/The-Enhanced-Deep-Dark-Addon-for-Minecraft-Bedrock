@@ -1,0 +1,21 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_shapeless": {
+		"description": {
+			"identifier": "dd:resonance_lamp_uncraft_3"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"ingredients": [
+			{
+				"count": 1,
+				"item": "dd:rgb_resonance_pulse_lamp"
+			}
+		],
+		"result": {
+			"count": 1,
+			"item": "dd:resonance_pulse_lamp"
+		}
+	}
+}

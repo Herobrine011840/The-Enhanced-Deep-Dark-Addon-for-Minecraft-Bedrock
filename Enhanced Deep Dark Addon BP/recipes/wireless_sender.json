@@ -1,0 +1,40 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "dd:wireless_sender"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"H": {
+				"item": "dd:hollowed_stone"
+			},
+			"P": {
+				"item": "dd:sculk_prism"
+			},
+			"V": {
+				"item": "dd:vibration_silver_ingot"
+			},
+			"E": {
+				"item": "dd:echo_dust"
+			},
+			"p": {
+				"item": "dd:polished_deepstone"
+			},
+			"S": {
+				"item": "soul_torch"
+			}
+		},
+		"pattern": [
+			" E ",
+			"pSp",
+			"PVH"
+		],
+		"result": {
+			"count": 1,
+			"item": "dd:wireless_sender"
+		}
+	}
+}

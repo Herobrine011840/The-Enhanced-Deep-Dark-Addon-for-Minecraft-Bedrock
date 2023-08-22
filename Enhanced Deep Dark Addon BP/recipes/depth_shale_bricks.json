@@ -1,0 +1,21 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_shapeless": {
+		"description": {
+			"identifier": "dd:depth_shale_bricks"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"ingredients": [
+			{
+				"count": 4,
+				"item": "dd:cut_depth_shale"
+			}
+		],
+		"result": {
+			"count": 4,
+			"item": "dd:depth_shale_bricks"
+		}
+	}
+}

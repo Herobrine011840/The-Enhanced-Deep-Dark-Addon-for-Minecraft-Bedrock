@@ -1,0 +1,31 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "dd:sigil_war_duplicate"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"D": {
+				"item": "deepslate"
+			},
+			"E": {
+				"item": "dd:echo_dust"
+			},
+			"S": {
+				"item": "dd:war_deepslate_sigil"
+			}
+		},
+		"pattern": [
+			"DSD",
+			"DED",
+			"DDD"
+		],
+		"result": {
+			"count": 3,
+			"item": "dd:war_deepslate_sigil"
+		}
+	}
+}

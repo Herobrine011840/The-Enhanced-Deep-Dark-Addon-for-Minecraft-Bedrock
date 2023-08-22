@@ -1,0 +1,23 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "dd:deepstone_slab"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"D": {
+				"item": "dd:deepstone"
+			}
+		},
+		"pattern": [
+			"DDD"
+		],
+		"result": {
+			"count": 6,
+			"item": "dd:deepstone_slab"
+		}
+	}
+}

@@ -1,0 +1,37 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "dd:soul_sucker"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"A": {
+				"item": "amethyst_shard"
+			},
+			"E": {
+				"item": "dd:echo_dust"
+			},
+			"W": {
+				"item": "dd:wardenstone"
+			},
+			"e": {
+				"item": "dd:item.echoing_flower"
+			},
+			"D": {
+				"item": "diamond"
+			}
+		},
+		"pattern": [
+			"WeW",
+			"ADA",
+			"WEW"
+		],
+		"result": {
+			"count": 1,
+			"item": "dd:soul_sucker"
+		}
+	}
+}

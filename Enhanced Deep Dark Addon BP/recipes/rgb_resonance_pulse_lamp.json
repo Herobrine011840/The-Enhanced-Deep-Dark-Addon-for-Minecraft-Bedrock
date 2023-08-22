@@ -1,0 +1,49 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "dd:rgb_resonance_pulse_lamp"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"A": {
+				"item": "amethyst_shard"
+			},
+			"B": {
+				"item": "light_blue_dye"
+			},
+			"G": {
+				"item": "green_dye"
+			},
+			"I": {
+				"item": "blue_dye"
+			},
+			"L": {
+				"item": "dd:resonance_pulse_lamp"
+			},
+			"O": {
+				"item": "orange_dye"
+			},
+			"R": {
+				"item": "red_dye"
+			},
+			"V": {
+				"item": "purple_dye"
+			},
+			"Y": {
+				"item": "yellow_dye"
+			}
+		},
+		"pattern": [
+			"YGB",
+			"OLI",
+			"RAV"
+		],
+		"result": {
+			"count": 1,
+			"item": "dd:rgb_resonance_pulse_lamp"
+		}
+	}
+}
