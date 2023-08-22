@@ -1,0 +1,45 @@
+{
+	"format_version": 2,
+	"metadata": {
+		"authors": [
+			"Herobrine011840"
+		],
+		"generated_with": {
+			"bridge": [
+				"2.6.1"
+			],
+			"dash": [
+				"0.10.10"
+			],
+			"blockbench_entity_wizard": [
+				"1.1.1"
+			]
+		}
+	},
+	"header": {
+		"name": "Enhanced Deep Dark Addon",
+		"description": "pack.description",
+		"min_engine_version": [
+			1,
+			19,
+			50
+		],
+		"uuid": "7fcba808-1a1f-4980-9614-0f52ae658641",
+		"version": [
+			1,
+			8,
+			1
+		]
+	},
+	"modules": [
+		{
+			"type": "resources",
+			"uuid": "c5cd8ca9-88fe-4b2e-a2a9-69af6f6b2262",
+			"version": [
+				1,
+				0,
+				0
+			]
+		}
+	]
+}
