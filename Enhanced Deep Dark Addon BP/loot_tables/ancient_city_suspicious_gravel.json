@@ -1,0 +1,175 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "minecraft:ward_armor_trim_smithing_template",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "minecraft:miner_pottery_sherd",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "minecraft:mourner_pottery_sherd",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "minecraft:skull_pottery_sherd",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "weight": 1,
+          "name": "dd:monster_deepslate_sigil"
+        },
+        {
+          "type": "item",
+          "weight": 1,
+          "name": "minecraft:compass"
+        },
+        {
+          "type": "item",
+          "weight": 1,
+          "name": "minecraft:name_tag"
+        },
+        {
+          "type": "item",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_damage",
+              "damage": {
+                "min": 0.8,
+                "max": 1
+              }
+            },
+            {
+              "function": "enchant_with_levels",
+              "levels": {
+                "min": 30,
+                "max": 50
+              }
+            }
+          ],
+          "name": "minecraft:iron_hoe"
+        },
+        {
+          "type": "item",
+          "weight": 1,
+          "name": "minecraft:lead"
+        },
+        {
+          "type": "item",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "enchant_with_levels",
+              "levels": {
+                "min": 30,
+                "max": 50
+              },
+              "treasure": true
+            }
+          ],
+          "name": "minecraft:iron_leggings"
+        },
+        {
+          "type": "item",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "specific_enchants",
+              "enchants": [
+                {
+                  "id": "swift_sneak",
+                  "level": [
+                    1,
+                    2
+                  ]
+                }
+              ]
+            }
+          ],
+          "name": "minecraft:book"
+        },
+        {
+          "type": "item",
+          "weight": 2,
+          "name": "minecraft:candle"
+        },
+        {
+          "type": "item",
+          "weight": 2,
+          "name": "minecraft:amethyst_shard"
+        },
+        {
+          "type": "item",
+          "weight": 2,
+          "name": "minecraft:experience_bottle"
+        },
+        {
+          "type": "item",
+          "weight": 2,
+          "functions": [
+            {
+              "function": "enchant_with_levels",
+              "levels": {
+                "min": 20,
+                "max": 39
+              },
+              "treasure": true
+            }
+          ],
+          "name": "minecraft:chainmail_leggings"
+        },
+        {
+          "type": "item",
+          "weight": 2,
+          "name": "minecraft:echo_shard"
+        },
+        {
+          "type": "item",
+          "weight": 2,
+          "functions": [
+            {
+              "function": "set_data",
+              "data": 28
+            }
+          ],
+          "name": "minecraft:potion"
+        },
+        {
+          "type": "item",
+          "weight": 2,
+          "functions": [
+            {
+              "function": "enchant_randomly"
+            }
+          ],
+          "name": "minecraft:book"
+        },
+        {
+          "type": "item",
+          "weight": 3,
+          "name": "minecraft:book"
+        },
+        {
+          "type": "item",
+          "weight": 3,
+          "name": "minecraft:bone"
+        },
+        {
+          "type": "item",
+          "weight": 3,
+          "name": "minecraft:coal"
+        }
+      ]
+    }
+  ]
+}
