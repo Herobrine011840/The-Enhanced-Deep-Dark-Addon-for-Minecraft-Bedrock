@@ -1,0 +1,295 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:block": {
+		"description": {
+			"identifier": "dd:resonance_chamber",
+			"properties": {
+				"dd:active": [
+					0,
+					1,
+					2
+				],
+				"dd:unit": [
+					0,
+					1
+				]
+			}
+		},
+		"components": {
+			"minecraft:block_light_absorption": 15,
+			"minecraft:map_color": "#202326",
+			"minecraft:creative_category": {
+				"category": "items",
+				"group": "items"
+			},
+			"minecraft:destroy_time": 1,
+			"minecraft:explosion_resistance": 100,
+			"minecraft:on_player_placing": {
+				"event": "unit"
+			},
+			"minecraft:material_instances": {
+				"*": {
+					"render_method": "opaque",
+					"texture": "dd_resonance_chamber"
+				}
+			}
+		},
+		"permutations": [
+			{
+				"condition": "query.block_property('dd:unit') == 0",
+				"components": {}
+			},
+			{
+				"condition": "query.block_property('dd:unit') == 1",
+				"components": {
+					"minecraft:unit_cube": {}
+				}
+			},
+			{
+				"condition": "query.block_property('dd:active') == 0",
+				"components": {}
+			},
+			{
+				"condition": "query.block_property('dd:active') == 1",
+				"components": {
+					"minecraft:ticking": {
+						"looping": true,
+						"on_tick": {
+							"event": "check_for_activate"
+						},
+						"range": [
+							0.2,
+							0.2
+						]
+					},
+					"minecraft:material_instances": {
+						"*": {
+							"render_method": "opaque",
+							"texture": "dd_resonance_chamber_on"
+						}
+					},
+					"minecraft:unit_cube": {}
+				}
+			},
+			{
+				"condition": "query.block_property('dd:active') == 2",
+				"components": {
+					"minecraft:ticking": {
+						"looping": true,
+						"on_tick": {
+							"event": "deactivate"
+						},
+						"range": [
+							1.7,
+							1.7
+						]
+					}
+				}
+			}
+		],
+		"events": {
+			"unit": {
+				"set_block_property": {
+					"dd:unit": 1
+				}
+			},
+			"check_for_activate": {
+				"run_command": {
+					"command": [
+						"execute if block ~ ~1 ~ dd:resonance_chamber [\"dd:active\"= 0, \"dd:unit\"=1] run setblock ~ ~1 ~ dd:resonance_chamber [\"dd:active\"= 1, \"dd:unit\"=1]",
+						"execute if block ~1 ~ ~ dd:resonance_chamber [\"dd:active\"= 0, \"dd:unit\"=1] run setblock ~1 ~ ~ dd:resonance_chamber [\"dd:active\"= 1, \"dd:unit\"=1]",
+						"execute if block ~ ~ ~1 dd:resonance_chamber [\"dd:active\"= 0, \"dd:unit\"=1] run setblock ~ ~ ~1 dd:resonance_chamber [\"dd:active\"= 1, \"dd:unit\"=1]",
+						"execute if block ~ ~-1 ~ dd:resonance_chamber [\"dd:active\"= 0, \"dd:unit\"=1] run setblock ~ ~-1 ~ dd:resonance_chamber [\"dd:active\"= 1, \"dd:unit\"=1]",
+						"execute if block ~-1 ~ ~ dd:resonance_chamber [\"dd:active\"= 0, \"dd:unit\"=1] run setblock ~-1 ~ ~ dd:resonance_chamber [\"dd:active\"= 1, \"dd:unit\"=1]",
+						"execute if block ~ ~ ~-1 dd:resonance_chamber [\"dd:active\"= 0, \"dd:unit\"=1] run setblock ~ ~ ~-1 dd:resonance_chamber [\"dd:active\"= 1, \"dd:unit\"=1]",
+						"execute if block ~ ~1 ~ dd:resonance_pulse_lamp [\"dd:active\"= 0] run setblock ~ ~1 ~ dd:resonance_pulse_lamp [\"dd:active\"= 1]",
+						"execute if block ~1 ~ ~ dd:resonance_pulse_lamp [\"dd:active\"= 0] run setblock ~1 ~ ~ dd:resonance_pulse_lamp [\"dd:active\"= 1]",
+						"execute if block ~ ~ ~1 dd:resonance_pulse_lamp [\"dd:active\"= 0] run setblock ~ ~ ~1 dd:resonance_pulse_lamp [\"dd:active\"= 1]",
+						"execute if block ~ ~-1 ~ dd:resonance_pulse_lamp [\"dd:active\"= 0] run setblock ~ ~-1 ~ dd:resonance_pulse_lamp [\"dd:active\"= 1]",
+						"execute if block ~-1 ~ ~ dd:resonance_pulse_lamp [\"dd:active\"= 0] run setblock ~-1 ~ ~ dd:resonance_pulse_lamp [\"dd:active\"= 1]",
+						"execute if block ~ ~ ~-1 dd:resonance_pulse_lamp [\"dd:active\"= 0] run setblock ~ ~ ~-1 dd:resonance_pulse_lamp [\"dd:active\"= 1]",
+						"execute if block ~ ~1 ~ dd:resonance_pulse_lamp [\"dd:active\"= 2] run setblock ~ ~1 ~ dd:resonance_pulse_lamp [\"dd:active\"= 1]",
+						"execute if block ~1 ~ ~ dd:resonance_pulse_lamp [\"dd:active\"= 2] run setblock ~1 ~ ~ dd:resonance_pulse_lamp [\"dd:active\"= 1]",
+						"execute if block ~ ~ ~1 dd:resonance_pulse_lamp [\"dd:active\"= 2] run setblock ~ ~ ~1 dd:resonance_pulse_lamp [\"dd:active\"= 1]",
+						"execute if block ~ ~-1 ~ dd:resonance_pulse_lamp [\"dd:active\"= 2] run setblock ~ ~-1 ~ dd:resonance_pulse_lamp [\"dd:active\"= 1]",
+						"execute if block ~-1 ~ ~ dd:resonance_pulse_lamp [\"dd:active\"= 2] run setblock ~-1 ~ ~ dd:resonance_pulse_lamp [\"dd:active\"= 1]",
+						"execute if block ~ ~ ~-1 dd:resonance_pulse_lamp [\"dd:active\"= 2] run setblock ~ ~ ~-1 dd:resonance_pulse_lamp [\"dd:active\"= 1]",
+						"execute if block ~ ~1 ~ dd:heartbeater [\"dd:active\"= 0] run setblock ~ ~1 ~ dd:heartbeater [\"dd:active\"= 1]",
+						"execute if block ~1 ~ ~ dd:heartbeater [\"dd:active\"= 0] run setblock ~1 ~ ~ dd:heartbeater [\"dd:active\"= 1]",
+						"execute if block ~ ~ ~1 dd:heartbeater [\"dd:active\"= 0] run setblock ~ ~ ~1 dd:heartbeater [\"dd:active\"= 1]",
+						"execute if block ~-1 ~ ~ dd:heartbeater [\"dd:active\"= 0] run setblock ~-1 ~ ~ dd:heartbeater [\"dd:active\"= 1]",
+						"execute if block ~ ~ ~-1 dd:heartbeater [\"dd:active\"= 0] run setblock ~ ~ ~-1 dd:heartbeater [\"dd:active\"= 1]",
+						"execute if block ~ ~1 ~ dd:long_resonance_pulse_lamp [\"dd:active\"= 0] run setblock ~ ~1 ~ dd:long_resonance_pulse_lamp [\"dd:active\"= 1]",
+						"execute if block ~1 ~ ~ dd:long_resonance_pulse_lamp [\"dd:active\"= 0] run setblock ~1 ~ ~ dd:long_resonance_pulse_lamp [\"dd:active\"= 1]",
+						"execute if block ~ ~ ~1 dd:long_resonance_pulse_lamp [\"dd:active\"= 0] run setblock ~ ~ ~1 dd:long_resonance_pulse_lamp [\"dd:active\"= 1]",
+						"execute if block ~ ~-1 ~ dd:long_resonance_pulse_lamp [\"dd:active\"= 0] run setblock ~ ~-1 ~ dd:long_resonance_pulse_lamp [\"dd:active\"= 1]",
+						"execute if block ~-1 ~ ~ dd:long_resonance_pulse_lamp [\"dd:active\"= 0] run setblock ~-1 ~ ~ dd:long_resonance_pulse_lamp [\"dd:active\"= 1]",
+						"execute if block ~ ~ ~-1 dd:long_resonance_pulse_lamp [\"dd:active\"= 0] run setblock ~ ~ ~-1 dd:long_resonance_pulse_lamp [\"dd:active\"= 1]",
+						"execute if block ~ ~1 ~ dd:long_resonance_pulse_lamp [\"dd:active\"= 2] run setblock ~ ~1 ~ dd:long_resonance_pulse_lamp [\"dd:active\"= 1]",
+						"execute if block ~1 ~ ~ dd:long_resonance_pulse_lamp [\"dd:active\"= 2] run setblock ~1 ~ ~ dd:long_resonance_pulse_lamp [\"dd:active\"= 1]",
+						"execute if block ~ ~ ~1 dd:long_resonance_pulse_lamp [\"dd:active\"= 2] run setblock ~ ~ ~1 dd:long_resonance_pulse_lamp [\"dd:active\"= 1]",
+						"execute if block ~ ~-1 ~ dd:long_resonance_pulse_lamp [\"dd:active\"= 2] run setblock ~ ~-1 ~ dd:long_resonance_pulse_lamp [\"dd:active\"= 1]",
+						"execute if block ~-1 ~ ~ dd:long_resonance_pulse_lamp [\"dd:active\"= 2] run setblock ~-1 ~ ~ dd:long_resonance_pulse_lamp [\"dd:active\"= 1]",
+						"execute if block ~ ~ ~-1 dd:long_resonance_pulse_lamp [\"dd:active\"= 2] run setblock ~ ~ ~-1 dd:long_resonance_pulse_lamp [\"dd:active\"= 1]",
+						"execute if block ~ ~1 ~ dd:soul_sucker [\"dd:active\"= 0] run setblock ~ ~1 ~ dd:soul_sucker [\"dd:active\"= 1]",
+						"execute if block ~1 ~ ~ dd:soul_sucker [\"dd:active\"= 0] run setblock ~1 ~ ~ dd:soul_sucker [\"dd:active\"= 1]",
+						"execute if block ~ ~ ~1 dd:soul_sucker [\"dd:active\"= 0] run setblock ~ ~ ~1 dd:soul_sucker [\"dd:active\"= 1]",
+						"execute if block ~ ~-1 ~ dd:soul_sucker [\"dd:active\"= 0] run setblock ~ ~-1 ~ dd:soul_sucker [\"dd:active\"= 1]",
+						"execute if block ~-1 ~ ~ dd:soul_sucker [\"dd:active\"= 0] run setblock ~-1 ~ ~ dd:soul_sucker [\"dd:active\"= 1]",
+						"execute if block ~ ~ ~-1 dd:soul_sucker [\"dd:active\"= 0] run setblock ~ ~ ~-1 dd:soul_sucker [\"dd:active\"= 1]",
+						"execute if block ~ ~1 ~ dd:delay_resonance_chamber [\"dd:active\"= 0, \"dd:unit\"=1] run setblock ~ ~1 ~ dd:delay_resonance_chamber [\"dd:active\"= 1, \"dd:unit\"=1]",
+						"execute if block ~1 ~ ~ dd:delay_resonance_chamber [\"dd:active\"= 0, \"dd:unit\"=1] run setblock ~1 ~ ~ dd:delay_resonance_chamber [\"dd:active\"= 1, \"dd:unit\"=1]",
+						"execute if block ~ ~ ~1 dd:delay_resonance_chamber [\"dd:active\"= 0, \"dd:unit\"=1] run setblock ~ ~ ~1 dd:delay_resonance_chamber [\"dd:active\"= 1, \"dd:unit\"=1]",
+						"execute if block ~ ~-1 ~ dd:delay_resonance_chamber [\"dd:active\"= 0, \"dd:unit\"=1] run setblock ~ ~-1 ~ dd:delay_resonance_chamber [\"dd:active\"= 1, \"dd:unit\"=1]",
+						"execute if block ~-1 ~ ~ dd:delay_resonance_chamber [\"dd:active\"= 0, \"dd:unit\"=1] run setblock ~-1 ~ ~ dd:delay_resonance_chamber [\"dd:active\"= 1, \"dd:unit\"=1]",
+						"execute if block ~ ~ ~-1 dd:delay_resonance_chamber [\"dd:active\"= 0, \"dd:unit\"=1] run setblock ~ ~ ~-1 dd:delay_resonance_chamber [\"dd:active\"= 1, \"dd:unit\"=1]",
+						"execute if block ~ ~1 ~ dd:delay_resonance_chamber [\"dd:active\"= 3, \"dd:unit\"=1] run setblock ~ ~1 ~ dd:delay_resonance_chamber [\"dd:active\"= 4, \"dd:unit\"=1]",
+						"execute if block ~1 ~ ~ dd:delay_resonance_chamber [\"dd:active\"= 3, \"dd:unit\"=1] run setblock ~1 ~ ~ dd:delay_resonance_chamber [\"dd:active\"= 4, \"dd:unit\"=1]",
+						"execute if block ~ ~ ~1 dd:delay_resonance_chamber [\"dd:active\"= 3, \"dd:unit\"=1] run setblock ~ ~ ~1 dd:delay_resonance_chamber [\"dd:active\"= 4, \"dd:unit\"=1]",
+						"execute if block ~ ~-1 ~ dd:delay_resonance_chamber [\"dd:active\"= 3, \"dd:unit\"=1] run setblock ~ ~-1 ~ dd:delay_resonance_chamber [\"dd:active\"= 4, \"dd:unit\"=1]",
+						"execute if block ~-1 ~ ~ dd:delay_resonance_chamber [\"dd:active\"= 3, \"dd:unit\"=1] run setblock ~-1 ~ ~ dd:delay_resonance_chamber [\"dd:active\"= 4, \"dd:unit\"=1]",
+						"execute if block ~ ~ ~-1 dd:delay_resonance_chamber [\"dd:active\"= 3, \"dd:unit\"=1] run setblock ~ ~ ~-1 dd:delay_resonance_chamber [\"dd:active\"= 4, \"dd:unit\"=1]",
+						"execute if block ~ ~1 ~ dd:echo_glass [\"dd:active\"= 0] run setblock ~ ~1 ~ dd:echo_glass [\"dd:active\"= 1]",
+						"execute if block ~1 ~ ~ dd:echo_glass [\"dd:active\"= 0] run setblock ~1 ~ ~ dd:echo_glass [\"dd:active\"= 1]",
+						"execute if block ~ ~ ~1 dd:echo_glass [\"dd:active\"= 0] run setblock ~ ~ ~1 dd:echo_glass [\"dd:active\"= 1]",
+						"execute if block ~ ~-1 ~ dd:echo_glass [\"dd:active\"= 0] run setblock ~ ~-1 ~ dd:echo_glass [\"dd:active\"= 1]",
+						"execute if block ~-1 ~ ~ dd:echo_glass [\"dd:active\"= 0] run setblock ~-1 ~ ~ dd:echo_glass [\"dd:active\"= 1]",
+						"execute if block ~ ~ ~-1 dd:echo_glass [\"dd:active\"= 0] run setblock ~ ~ ~-1 dd:echo_glass [\"dd:active\"= 1]",
+						"execute if block ~ ~1 ~ dd:vibration_forcefield_controller [\"dd:active\"= 0] run setblock ~ ~1 ~ dd:vibration_forcefield_controller [\"dd:active\"= 1]",
+						"execute if block ~1 ~ ~ dd:vibration_forcefield_controller [\"dd:active\"= 0] run setblock ~1 ~ ~ dd:vibration_forcefield_controller [\"dd:active\"= 1]",
+						"execute if block ~ ~ ~1 dd:vibration_forcefield_controller [\"dd:active\"= 0] run setblock ~ ~ ~1 dd:vibration_forcefield_controller [\"dd:active\"= 1]",
+						"execute if block ~-1 ~ ~ dd:vibration_forcefield_controller [\"dd:active\"= 0] run setblock ~-1 ~ ~ dd:vibration_forcefield_controller [\"dd:active\"= 1]",
+						"execute if block ~ ~ ~-1 dd:vibration_forcefield_controller [\"dd:active\"= 0] run setblock ~ ~ ~-1 dd:vibration_forcefield_controller [\"dd:active\"= 1]",
+						"execute if block ~ ~1 ~ dd:vibration_forcefield_controller [\"dd:active\"= 2] run setblock ~ ~1 ~ dd:vibration_forcefield_controller [\"dd:active\"= 3]",
+						"execute if block ~1 ~ ~ dd:vibration_forcefield_controller [\"dd:active\"= 2] run setblock ~1 ~ ~ dd:vibration_forcefield_controller [\"dd:active\"= 3]",
+						"execute if block ~ ~ ~1 dd:vibration_forcefield_controller [\"dd:active\"= 2] run setblock ~ ~ ~1 dd:vibration_forcefield_controller [\"dd:active\"= 3]",
+						"execute if block ~-1 ~ ~ dd:vibration_forcefield_controller [\"dd:active\"= 2] run setblock ~-1 ~ ~ dd:vibration_forcefield_controller [\"dd:active\"= 3]",
+						"execute if block ~ ~ ~-1 dd:vibration_forcefield_controller [\"dd:active\"= 2] run setblock ~ ~ ~-1 dd:vibration_forcefield_controller [\"dd:active\"= 3]",
+						"execute if block ~ ~1 ~ dd:rgb_resonance_pulse_lamp [\"dd:active\"= 0] run setblock ~ ~1 ~ dd:rgb_resonance_pulse_lamp [\"dd:active\"= 1]",
+						"execute if block ~1 ~ ~ dd:rgb_resonance_pulse_lamp [\"dd:active\"= 0] run setblock ~1 ~ ~ dd:rgb_resonance_pulse_lamp [\"dd:active\"= 1]",
+						"execute if block ~ ~ ~1 dd:rgb_resonance_pulse_lamp [\"dd:active\"= 0] run setblock ~ ~ ~1 dd:rgb_resonance_pulse_lamp [\"dd:active\"= 1]",
+						"execute if block ~ ~-1 ~ dd:rgb_resonance_pulse_lamp [\"dd:active\"= 0] run setblock ~ ~-1 ~ dd:rgb_resonance_pulse_lamp [\"dd:active\"= 1]",
+						"execute if block ~-1 ~ ~ dd:rgb_resonance_pulse_lamp [\"dd:active\"= 0] run setblock ~-1 ~ ~ dd:rgb_resonance_pulse_lamp [\"dd:active\"= 1]",
+						"execute if block ~ ~ ~-1 dd:rgb_resonance_pulse_lamp [\"dd:active\"= 0] run setblock ~ ~ ~-1 dd:rgb_resonance_pulse_lamp [\"dd:active\"= 1]",
+						"execute if block ~ ~1 ~ dd:rgb_resonance_pulse_lamp [\"dd:active\"= 2] run setblock ~ ~1 ~ dd:rgb_resonance_pulse_lamp [\"dd:active\"= 1]",
+						"execute if block ~1 ~ ~ dd:rgb_resonance_pulse_lamp [\"dd:active\"= 2] run setblock ~1 ~ ~ dd:rgb_resonance_pulse_lamp [\"dd:active\"= 1]",
+						"execute if block ~ ~ ~1 dd:rgb_resonance_pulse_lamp [\"dd:active\"= 2] run setblock ~ ~ ~1 dd:rgb_resonance_pulse_lamp [\"dd:active\"= 1]",
+						"execute if block ~ ~-1 ~ dd:rgb_resonance_pulse_lamp [\"dd:active\"= 2] run setblock ~ ~-1 ~ dd:rgb_resonance_pulse_lamp [\"dd:active\"= 1]",
+						"execute if block ~-1 ~ ~ dd:rgb_resonance_pulse_lamp [\"dd:active\"= 2] run setblock ~-1 ~ ~ dd:rgb_resonance_pulse_lamp [\"dd:active\"= 1]",
+						"execute if block ~ ~ ~-1 dd:rgb_resonance_pulse_lamp [\"dd:active\"= 2] run setblock ~ ~ ~-1 dd:rgb_resonance_pulse_lamp [\"dd:active\"= 1]",
+						"execute if block ~ ~1 ~ dd:toggle_resonance_pulse_lamp [\"dd:active\"= 0] run setblock ~ ~1 ~ dd:toggle_resonance_pulse_lamp [\"dd:active\"= 1]",
+						"execute if block ~1 ~ ~ dd:toggle_resonance_pulse_lamp [\"dd:active\"= 0] run setblock ~1 ~ ~ dd:toggle_resonance_pulse_lamp [\"dd:active\"= 1]",
+						"execute if block ~ ~ ~1 dd:toggle_resonance_pulse_lamp [\"dd:active\"= 0] run setblock ~ ~ ~1 dd:toggle_resonance_pulse_lamp [\"dd:active\"= 1]",
+						"execute if block ~ ~-1 ~ dd:toggle_resonance_pulse_lamp [\"dd:active\"= 0] run setblock ~ ~-1 ~ dd:toggle_resonance_pulse_lamp [\"dd:active\"= 1]",
+						"execute if block ~-1 ~ ~ dd:toggle_resonance_pulse_lamp [\"dd:active\"= 0] run setblock ~-1 ~ ~ dd:toggle_resonance_pulse_lamp [\"dd:active\"= 1]",
+						"execute if block ~ ~ ~-1 dd:toggle_resonance_pulse_lamp [\"dd:active\"= 0] run setblock ~ ~ ~-1 dd:toggle_resonance_pulse_lamp [\"dd:active\"= 1]",
+						"execute if block ~ ~1 ~ dd:toggle_resonance_pulse_lamp [\"dd:active\"= 2] run setblock ~ ~1 ~ dd:toggle_resonance_pulse_lamp [\"dd:active\"= 0]",
+						"execute if block ~1 ~ ~ dd:toggle_resonance_pulse_lamp [\"dd:active\"= 2] run setblock ~1 ~ ~ dd:toggle_resonance_pulse_lamp [\"dd:active\"= 0]",
+						"execute if block ~ ~ ~1 dd:toggle_resonance_pulse_lamp [\"dd:active\"= 2] run setblock ~ ~ ~1 dd:toggle_resonance_pulse_lamp [\"dd:active\"= 0]",
+						"execute if block ~ ~-1 ~ dd:toggle_resonance_pulse_lamp [\"dd:active\"= 2] run setblock ~ ~-1 ~ dd:toggle_resonance_pulse_lamp [\"dd:active\"= 0]",
+						"execute if block ~-1 ~ ~ dd:toggle_resonance_pulse_lamp [\"dd:active\"= 2] run setblock ~-1 ~ ~ dd:toggle_resonance_pulse_lamp [\"dd:active\"= 0]",
+						"execute if block ~ ~ ~-1 dd:toggle_resonance_pulse_lamp [\"dd:active\"= 2] run setblock ~ ~ ~-1 dd:toggle_resonance_pulse_lamp [\"dd:active\"= 0]",
+						"execute if block ~ ~1 ~ dd:echo_shrieker [\"dd:active\"= 0] run setblock ~ ~1 ~ dd:echo_shrieker [\"dd:active\"= 1]",
+						"execute if block ~1 ~ ~ dd:echo_shrieker [\"dd:active\"= 0] run setblock ~1 ~ ~ dd:echo_shrieker [\"dd:active\"= 1]",
+						"execute if block ~ ~ ~1 dd:echo_shrieker [\"dd:active\"= 0] run setblock ~ ~ ~1 dd:echo_shrieker [\"dd:active\"= 1]",
+						"execute if block ~ ~-1 ~ dd:echo_shrieker [\"dd:active\"= 0] run setblock ~ ~-1 ~ dd:echo_shrieker [\"dd:active\"= 1]",
+						"execute if block ~-1 ~ ~ dd:echo_shrieker [\"dd:active\"= 0] run setblock ~-1 ~ ~ dd:echo_shrieker [\"dd:active\"= 1]",
+						"execute if block ~ ~ ~-1 dd:echo_shrieker [\"dd:active\"= 0] run setblock ~ ~ ~-1 dd:echo_shrieker [\"dd:active\"= 1]",
+						"execute if block ~ ~1 ~ dd:echo_darkness_shrieker [\"dd:active\"= 0] run setblock ~ ~1 ~ dd:echo_darkness_shrieker [\"dd:active\"= 1]",
+						"execute if block ~1 ~ ~ dd:echo_darkness_shrieker [\"dd:active\"= 0] run setblock ~1 ~ ~ dd:echo_darkness_shrieker [\"dd:active\"= 1]",
+						"execute if block ~ ~ ~1 dd:echo_darkness_shrieker [\"dd:active\"= 0] run setblock ~ ~ ~1 dd:echo_darkness_shrieker [\"dd:active\"= 1]",
+						"execute if block ~ ~-1 ~ dd:echo_darkness_shrieker [\"dd:active\"= 0] run setblock ~ ~-1 ~ dd:echo_darkness_shrieker [\"dd:active\"= 1]",
+						"execute if block ~-1 ~ ~ dd:echo_darkness_shrieker [\"dd:active\"= 0] run setblock ~-1 ~ ~ dd:echo_darkness_shrieker [\"dd:active\"= 1]",
+						"execute if block ~ ~ ~-1 dd:echo_darkness_shrieker [\"dd:active\"= 0] run setblock ~ ~ ~-1 dd:echo_darkness_shrieker [\"dd:active\"= 1]",
+						"execute if block ~ ~1 ~ dd:echo_darkness_shrieker [\"dd:active\"= 3] run setblock ~ ~1 ~ dd:echo_darkness_shrieker [\"dd:active\"= 4]",
+						"execute if block ~1 ~ ~ dd:echo_darkness_shrieker [\"dd:active\"= 3] run setblock ~1 ~ ~ dd:echo_darkness_shrieker [\"dd:active\"= 4]",
+						"execute if block ~ ~ ~1 dd:echo_darkness_shrieker [\"dd:active\"= 3] run setblock ~ ~ ~1 dd:echo_darkness_shrieker [\"dd:active\"= 4]",
+						"execute if block ~ ~-1 ~ dd:echo_darkness_shrieker [\"dd:active\"= 3] run setblock ~ ~-1 ~ dd:echo_darkness_shrieker [\"dd:active\"= 4]",
+						"execute if block ~-1 ~ ~ dd:echo_darkness_shrieker [\"dd:active\"= 3] run setblock ~-1 ~ ~ dd:echo_darkness_shrieker [\"dd:active\"= 4]",
+						"execute if block ~ ~ ~-1 dd:echo_darkness_shrieker [\"dd:active\"= 3] run setblock ~ ~ ~-1 dd:echo_darkness_shrieker [\"dd:active\"= 4]",
+						"execute if block ~ ~1 ~ dd:echo_darkness_shrieker [\"dd:active\"= 6] run setblock ~ ~1 ~ dd:echo_darkness_shrieker [\"dd:active\"= 7]",
+						"execute if block ~1 ~ ~ dd:echo_darkness_shrieker [\"dd:active\"= 6] run setblock ~1 ~ ~ dd:echo_darkness_shrieker [\"dd:active\"= 7]",
+						"execute if block ~ ~ ~1 dd:echo_darkness_shrieker [\"dd:active\"= 6] run setblock ~ ~ ~1 dd:echo_darkness_shrieker [\"dd:active\"= 7]",
+						"execute if block ~ ~-1 ~ dd:echo_darkness_shrieker [\"dd:active\"= 6] run setblock ~ ~-1 ~ dd:echo_darkness_shrieker [\"dd:active\"= 7]",
+						"execute if block ~-1 ~ ~ dd:echo_darkness_shrieker [\"dd:active\"= 6] run setblock ~-1 ~ ~ dd:echo_darkness_shrieker [\"dd:active\"= 7]",
+						"execute if block ~ ~ ~-1 dd:echo_darkness_shrieker [\"dd:active\"= 6] run setblock ~ ~ ~-1 dd:echo_darkness_shrieker [\"dd:active\"= 7]",
+						"execute if block ~ ~1 ~ dd:echo_darkness_shrieker [\"dd:active\"= 9] run setblock ~ ~1 ~ dd:echo_darkness_shrieker [\"dd:active\"= 10]",
+						"execute if block ~1 ~ ~ dd:echo_darkness_shrieker [\"dd:active\"= 9] run setblock ~1 ~ ~ dd:echo_darkness_shrieker [\"dd:active\"= 10]",
+						"execute if block ~ ~ ~1 dd:echo_darkness_shrieker [\"dd:active\"= 9] run setblock ~ ~ ~1 dd:echo_darkness_shrieker [\"dd:active\"= 10]",
+						"execute if block ~ ~-1 ~ dd:echo_darkness_shrieker [\"dd:active\"= 9] run setblock ~ ~-1 ~ dd:echo_darkness_shrieker [\"dd:active\"= 10]",
+						"execute if block ~-1 ~ ~ dd:echo_darkness_shrieker [\"dd:active\"= 9] run setblock ~-1 ~ ~ dd:echo_darkness_shrieker [\"dd:active\"= 10]",
+						"execute if block ~ ~ ~-1 dd:echo_darkness_shrieker [\"dd:active\"= 9] run setblock ~ ~ ~-1 dd:echo_darkness_shrieker [\"dd:active\"= 10]",
+						"execute if block ~ ~1 ~ dd:experience_multiplier [\"dd:active\"= 0] run setblock ~ ~1 ~ dd:experience_multiplier [\"dd:active\"= 1]",
+						"execute if block ~1 ~ ~ dd:experience_multiplier [\"dd:active\"= 0] run setblock ~1 ~ ~ dd:experience_multiplier [\"dd:active\"= 1]",
+						"execute if block ~ ~ ~1 dd:experience_multiplier [\"dd:active\"= 0] run setblock ~ ~ ~1 dd:experience_multiplier [\"dd:active\"= 1]",
+						"execute if block ~ ~-1 ~ dd:experience_multiplier [\"dd:active\"= 0] run setblock ~ ~-1 ~ dd:experience_multiplier [\"dd:active\"= 1]",
+						"execute if block ~-1 ~ ~ dd:experience_multiplier [\"dd:active\"= 0] run setblock ~-1 ~ ~ dd:experience_multiplier [\"dd:active\"= 1]",
+						"execute if block ~ ~ ~-1 dd:experience_multiplier [\"dd:active\"= 0] run setblock ~ ~ ~-1 dd:experience_multiplier [\"dd:active\"= 1]",
+						"execute if block ~ ~1 ~ dd:experience_multiplier [\"dd:active\"= 2] run setblock ~ ~1 ~ dd:experience_multiplier [\"dd:active\"= 1]",
+						"execute if block ~1 ~ ~ dd:experience_multiplier [\"dd:active\"= 2] run setblock ~1 ~ ~ dd:experience_multiplier [\"dd:active\"= 1]",
+						"execute if block ~ ~ ~1 dd:experience_multiplier [\"dd:active\"= 2] run setblock ~ ~ ~1 dd:experience_multiplier [\"dd:active\"= 1]",
+						"execute if block ~ ~-1 ~ dd:experience_multiplier [\"dd:active\"= 2] run setblock ~ ~-1 ~ dd:experience_multiplier [\"dd:active\"= 1]",
+						"execute if block ~-1 ~ ~ dd:experience_multiplier [\"dd:active\"= 2] run setblock ~-1 ~ ~ dd:experience_multiplier [\"dd:active\"= 1]",
+						"execute if block ~ ~ ~-1 dd:experience_multiplier [\"dd:active\"= 2] run setblock ~ ~ ~-1 dd:experience_multiplier [\"dd:active\"= 1]",
+						"execute if block ~ ~1 ~ dd:prism_platform [\"dd:active\"= 0] run setblock ~ ~1 ~ dd:prism_platform [\"dd:active\"= 1]",
+						"execute if block ~1 ~ ~ dd:prism_platform [\"dd:active\"= 0] run setblock ~1 ~ ~ dd:prism_platform [\"dd:active\"= 1]",
+						"execute if block ~ ~ ~1 dd:prism_platform [\"dd:active\"= 0] run setblock ~ ~ ~1 dd:prism_platform [\"dd:active\"= 1]",
+						"execute if block ~ ~-1 ~ dd:prism_platform [\"dd:active\"= 0] run setblock ~ ~-1 ~ dd:prism_platform [\"dd:active\"= 1]",
+						"execute if block ~-1 ~ ~ dd:prism_platform [\"dd:active\"= 0] run setblock ~-1 ~ ~ dd:prism_platform [\"dd:active\"= 1]",
+						"execute if block ~ ~ ~-1 dd:prism_platform [\"dd:active\"= 0] run setblock ~ ~ ~-1 dd:prism_platform [\"dd:active\"= 1]",
+						"execute if block ~ ~1 ~ dd:resonance_plates [\"dd:charged\"= 0] run setblock ~ ~1 ~ dd:resonance_plates [\"dd:charged\"= 3]",
+						"execute if block ~ ~-1 ~ dd:resonance_plates [\"dd:charged\"= 0] run setblock ~ ~-1 ~ dd:resonance_plates [\"dd:charged\"= 3]",
+						"execute if block ~ ~ ~1 dd:resonance_plates [\"dd:charged\"= 1] run setblock ~ ~ ~1 dd:resonance_plates [\"dd:charged\"= 4]",
+						"execute if block ~ ~ ~-1 dd:resonance_plates [\"dd:charged\"= 1] run setblock ~ ~ ~-1 dd:resonance_plates [\"dd:charged\"= 4]",
+						"execute if block ~1 ~ ~ dd:resonance_plates [\"dd:charged\"= 2] run setblock ~1 ~ ~ dd:resonance_plates [\"dd:charged\"= 5]",
+						"execute if block ~-1 ~ ~ dd:resonance_plates [\"dd:charged\"= 2] run setblock  ~-1 ~ ~ dd:resonance_plates [\"dd:charged\"= 5]",
+						"execute if block ~ ~1 ~ dd:vibration_silver_block [\"dd:active\"= 0] run setblock ~ ~1 ~ dd:vibration_silver_block [\"dd:active\"= 1]",
+						"execute if block ~1 ~ ~ dd:vibration_silver_block [\"dd:active\"= 0] run setblock ~1 ~ ~ dd:vibration_silver_block [\"dd:active\"= 1]",
+						"execute if block ~ ~ ~1 dd:vibration_silver_block [\"dd:active\"= 0] run setblock ~ ~ ~1 dd:vibration_silver_block [\"dd:active\"= 1]",
+						"execute if block ~ ~-1 ~ dd:vibration_silver_block [\"dd:active\"= 0] run setblock ~ ~-1 ~ dd:vibration_silver_block [\"dd:active\"= 1]",
+						"execute if block ~-1 ~ ~ dd:vibration_silver_block [\"dd:active\"= 0] run setblock ~-1 ~ ~ dd:vibration_silver_block [\"dd:active\"= 1]",
+						"execute if block ~ ~ ~-1 dd:vibration_silver_block [\"dd:active\"= 0] run setblock ~ ~ ~-1 dd:vibration_silver_block [\"dd:active\"= 1]",
+						"execute if block ~ ~1 ~ dd:crystal_grower [\"dd:active\"= 0] run setblock ~ ~1 ~ dd:crystal_grower [\"dd:active\"= 1]",
+						"execute if block ~1 ~ ~ dd:crystal_grower [\"dd:active\"= 0] run setblock ~1 ~ ~ dd:crystal_grower [\"dd:active\"= 1]",
+						"execute if block ~ ~ ~1 dd:crystal_grower [\"dd:active\"= 0] run setblock ~ ~ ~1 dd:crystal_grower [\"dd:active\"= 1]",
+						"execute if block ~ ~-1 ~ dd:crystal_grower [\"dd:active\"= 0] run setblock ~ ~-1 ~ dd:crystal_grower [\"dd:active\"= 1]",
+						"execute if block ~-1 ~ ~ dd:crystal_grower [\"dd:active\"= 0] run setblock ~-1 ~ ~ dd:crystal_grower [\"dd:active\"= 1]",
+						"execute if block ~ ~ ~-1 dd:crystal_grower [\"dd:active\"= 0] run setblock ~ ~ ~-1 dd:crystal_grower [\"dd:active\"= 1]",
+						"execute if block ~ ~1 ~ dd:soul_destroyer [\"dd:active\"= 0] run setblock ~ ~1 ~ dd:soul_destroyer [\"dd:active\"= 1]",
+						"execute if block ~1 ~ ~ dd:soul_destroyer [\"dd:active\"= 0] run setblock ~1 ~ ~ dd:soul_destroyer [\"dd:active\"= 1]",
+						"execute if block ~ ~ ~1 dd:soul_destroyer [\"dd:active\"= 0] run setblock ~ ~ ~1 dd:soul_destroyer [\"dd:active\"= 1]",
+						"execute if block ~ ~-1 ~ dd:soul_destroyer [\"dd:active\"= 0] run setblock ~ ~-1 ~ dd:soul_destroyer [\"dd:active\"= 1]",
+						"execute if block ~-1 ~ ~ dd:soul_destroyer [\"dd:active\"= 0] run setblock ~-1 ~ ~ dd:soul_destroyer [\"dd:active\"= 1]",
+						"execute if block ~ ~ ~-1 dd:soul_destroyer [\"dd:active\"= 0] run setblock ~ ~ ~-1 dd:soul_destroyer [\"dd:active\"= 1]",
+						"execute if block ~ ~1 ~ dd:wireless_sender [\"dd:active\"= 0] run setblock ~ ~1 ~ dd:wireless_sender [\"dd:active\"= 1]",
+						"execute if block ~ ~1 ~ dd:music_player [\"dd:active\"= 0] run setblock ~ ~1 ~ dd:music_player [\"dd:active\"= 1]",
+						"execute if block ~1 ~ ~ dd:music_player [\"dd:active\"= 0] run setblock ~1 ~ ~ dd:music_player [\"dd:active\"= 1]",
+						"execute if block ~ ~ ~1 dd:music_player [\"dd:active\"= 0] run setblock ~ ~ ~1 dd:music_player [\"dd:active\"= 1]",
+						"execute if block ~-1 ~ ~ dd:music_player [\"dd:active\"= 0] run setblock ~-1 ~ ~ dd:music_player [\"dd:active\"= 1]",
+						"execute if block ~ ~ ~-1 dd:music_player [\"dd:active\"= 0] run setblock ~ ~ ~-1 dd:music_player [\"dd:active\"= 1]",
+						"execute if block ~ ~1 ~ dd:vibration_battery [\"dd:active_charge\"= 0] run setblock ~ ~1 ~ dd:vibration_battery [\"dd:active_charge\"= 1]",
+						"execute if block ~ ~1 ~ dd:vibration_battery [\"dd:active_charge\"= 2] run setblock ~ ~1 ~ dd:vibration_battery [\"dd:active_charge\"= 3]",
+						"execute if block ~ ~1 ~ dd:vibration_battery [\"dd:active_charge\"= 4] run setblock ~ ~1 ~ dd:vibration_battery [\"dd:active_charge\"= 5]",
+						"execute if block ~ ~1 ~ dd:vibration_battery [\"dd:active_charge\"= 6] run setblock ~ ~1 ~ dd:vibration_battery [\"dd:active_charge\"= 7]",
+						"execute if block ~ ~1 ~ dd:vibration_battery [\"dd:active_charge\"= 8] run setblock ~ ~1 ~ dd:vibration_battery [\"dd:active_charge\"= 9]",
+						"execute if block ~ ~1 ~ dd:vibration_battery [\"dd:active_charge\"= 10] run setblock ~ ~1 ~ dd:vibration_battery [\"dd:active_charge\"= 11]",
+						"execute if block ~ ~1 ~ dd:portal_closer [\"dd:closing_stage\"= 0] run setblock ~ ~1 ~ dd:portal_closer [\"dd:closing_stage\"= 1]",
+						"execute if block ~1 ~ ~ dd:portal_closer [\"dd:closing_stage\"= 0] run setblock ~1 ~ ~ dd:portal_closer [\"dd:closing_stage\"= 1]",
+						"execute if block ~ ~ ~1 dd:portal_closer [\"dd:closing_stage\"= 0] run setblock ~ ~ ~1 dd:portal_closer [\"dd:closing_stage\"= 1]",
+						"execute if block ~ ~-1 ~ dd:portal_closer [\"dd:closing_stage\"= 0] run setblock ~ ~-1 ~ dd:portal_closer [\"dd:closing_stage\"= 1]",
+						"execute if block ~-1 ~ ~ dd:portal_closer [\"dd:closing_stage\"= 0] run setblock ~-1 ~ ~ dd:portal_closer [\"dd:closing_stage\"= 1]",
+						"execute if block ~ ~ ~-1 dd:portal_closer [\"dd:closing_stage\"= 0] run setblock ~ ~ ~-1 dd:portal_closer [\"dd:closing_stage\"= 1]"
+					]
+				},
+				"set_block_property": {
+					"dd:active": 2
+				}
+			},
+			"deactivate": {
+				"set_block_property": {
+					"dd:active": 0
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,95 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:block": {
+		"description": {
+			"identifier": "dd:echo_glass",
+			"properties": {
+				"dd:active": [
+					0,
+					1,
+					2
+				]
+			}
+		},
+		"components": {
+			"minecraft:block_light_absorption": 0,
+			"minecraft:creative_category": {
+				"category": "construction",
+				"group": "itemGroup.name.glass"
+			},
+			"minecraft:destroy_time": 0.2,
+			"minecraft:explosion_resistance": 100,
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "dd_echo_glass",
+					"render_method": "blend"
+				}
+			}
+		},
+		"permutations": [
+			{
+				"condition": "query.block_property('dd:active') == 0",
+				"components": {}
+			},
+			{
+				"condition": "query.block_property('dd:active') == 1",
+				"components": {
+					"minecraft:ticking": {
+						"looping": true,
+						"on_tick": {
+							"event": "check_for_activate"
+						},
+						"range": [
+							0.01,
+							0.01
+						]
+					}
+				}
+			},
+			{
+				"condition": "query.block_property('dd:active') == 2",
+				"components": {
+					"minecraft:ticking": {
+						"looping": true,
+						"on_tick": {
+							"event": "deactivate"
+						},
+						"range": [
+							0.4,
+							0.4
+						]
+					}
+				}
+			}
+		],
+		"events": {
+			"check_for_activate": {
+				"run_command": {
+					"command": [
+						"execute if block ~ ~1 ~ dd:resonance_chamber [\"dd:active\"= 0, \"dd:unit\"=1] run setblock ~ ~1 ~ dd:resonance_chamber [\"dd:active\"= 1, \"dd:unit\"=1]",
+						"execute if block ~1 ~ ~ dd:resonance_chamber [\"dd:active\"= 0, \"dd:unit\"=1] run setblock ~1 ~ ~ dd:resonance_chamber [\"dd:active\"= 1, \"dd:unit\"=1]",
+						"execute if block ~ ~ ~1 dd:resonance_chamber [\"dd:active\"= 0, \"dd:unit\"=1] run setblock ~ ~ ~1 dd:resonance_chamber [\"dd:active\"= 1, \"dd:unit\"=1]",
+						"execute if block ~ ~-1 ~ dd:resonance_chamber [\"dd:active\"= 0, \"dd:unit\"=1] run setblock ~ ~-1 ~ dd:resonance_chamber [\"dd:active\"= 1, \"dd:unit\"=1]",
+						"execute if block ~-1 ~ ~ dd:resonance_chamber [\"dd:active\"= 0, \"dd:unit\"=1] run setblock ~-1 ~ ~ dd:resonance_chamber [\"dd:active\"= 1, \"dd:unit\"=1]",
+						"execute if block ~ ~ ~-1 dd:resonance_chamber [\"dd:active\"= 0, \"dd:unit\"=1] run setblock ~ ~ ~-1 dd:resonance_chamber [\"dd:active\"= 1, \"dd:unit\"=1]",
+						"execute if block ~ ~1 ~ dd:echo_glass [\"dd:active\"= 0] run setblock ~ ~1 ~ dd:echo_glass [\"dd:active\"= 1]",
+						"execute if block ~1 ~ ~ dd:echo_glass [\"dd:active\"= 0] run setblock ~1 ~ ~ dd:echo_glass [\"dd:active\"= 1]",
+						"execute if block ~ ~ ~1 dd:echo_glass [\"dd:active\"= 0] run setblock ~ ~ ~1 dd:echo_glass [\"dd:active\"= 1]",
+						"execute if block ~ ~-1 ~ dd:echo_glass [\"dd:active\"= 0] run setblock ~ ~-1 ~ dd:echo_glass [\"dd:active\"= 1]",
+						"execute if block ~-1 ~ ~ dd:echo_glass [\"dd:active\"= 0] run setblock ~-1 ~ ~ dd:echo_glass [\"dd:active\"= 1]",
+						"execute if block ~ ~ ~-1 dd:echo_glass [\"dd:active\"= 0] run setblock ~ ~ ~-1 dd:echo_glass [\"dd:active\"= 1]",
+						"playsound resonate.amethyst_block @a ~ ~ ~"
+					]
+				},
+				"set_block_property": {
+					"dd:active": 2
+				}
+			},
+			"deactivate": {
+				"set_block_property": {
+					"dd:active": 0
+				}
+			}
+		}
+	}
+}

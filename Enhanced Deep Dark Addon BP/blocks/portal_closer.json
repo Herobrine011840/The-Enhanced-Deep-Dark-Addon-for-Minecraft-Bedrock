@@ -1,0 +1,91 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:block": {
+		"description": {
+			"identifier": "dd:portal_closer",
+			"properties": {
+				"dd:closing_stage": [
+					0,
+					1,
+					2
+				]
+			}
+		},
+		"components": {
+			"minecraft:block_light_absorption": 15,
+			"minecraft:map_color": "#202326",
+			"minecraft:creative_category": {
+				"category": "items",
+				"group": "items"
+			},
+			"minecraft:destroy_time": 1,
+			"minecraft:explosion_resistance": 100
+		},
+		"permutations": [
+			{
+				"condition": "query.block_property('dd:closing_stage') == 0",
+				"components": {}
+			},
+			{
+				"condition": "query.block_property('dd:closing_stage') == 1",
+				"components": {
+					"minecraft:ticking": {
+						"looping": false,
+						"range": [
+							0.05,
+							0.05
+						],
+						"on_tick": {
+							"event": "start_charge"
+						}
+					}
+				}
+			},
+			{
+				"condition": "query.block_property('dd:closing_stage') == 2",
+				"components": {
+					"minecraft:ticking": {
+						"looping": false,
+						"range": [
+							5.5,
+							5.5
+						],
+						"on_tick": {
+							"event": "charge_finish"
+						}
+					}
+				}
+			}
+		],
+		"events": {
+			"start_charge": {
+				"set_block_property": {
+					"dd:closing_stage": 2
+				},
+				"run_command": {
+					"command": [
+						"playsound mob.warden.sonic_charge @a ~ ~ ~ 100 0.3",
+						"particle dd:portal_closer_emitter ~ ~1 ~"
+					]
+				}
+			},
+			"charge_finish": {
+				"set_block_property": {
+					"dd:closing_stage": 0
+				},
+				"run_command": {
+					"command": [
+						"playsound random.explode @a ~ ~ ~ 100 0.5",
+						"playsound mob.allay.idle @a ~ ~ ~ 100 0.5",
+						"particle dd:resonance_bell_ring ~ ~ ~",
+						"fill ~-20 ~-14 ~-20 ~20 ~4 ~20 air replace dd:ancient_portal",
+						"damage @e [type=warden,r=4] 5",
+						"damage @e [type=dd:dark_spirit,r=4] 5",
+						"damage @e [type=dd:darkness_terror,r=4] 5",
+						"damage @e [type=dd:abyssal_leviathan,r=4] 5"
+					]
+				}
+			}
+		}
+	}
+}

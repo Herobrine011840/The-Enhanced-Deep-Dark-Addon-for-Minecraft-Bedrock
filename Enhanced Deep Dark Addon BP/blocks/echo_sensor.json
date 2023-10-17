@@ -1,0 +1,89 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:block": {
+		"description": {
+			"identifier": "dd:echo_sensor",
+			"properties": {
+				"dd:active": [
+					0,
+					1,
+					2
+				]
+			}
+		},
+		"components": {
+			"minecraft:block_light_absorption": 15,
+			"minecraft:map_color": "#202326",
+			"minecraft:creative_category": {
+				"category": "items",
+				"group": "items"
+			},
+			"minecraft:destroy_time": 1,
+			"minecraft:explosion_resistance": 100
+		},
+		"permutations": [
+			{
+				"condition": "query.block_property('dd:active') == 0",
+				"components": {
+					"minecraft:on_step_on": {
+						"event": "activate"
+					}
+				}
+			},
+			{
+				"condition": "query.block_property('dd:active') == 1",
+				"components": {
+					"minecraft:ticking": {
+						"looping": true,
+						"on_tick": {
+							"event": "check_for_activate_chamber"
+						},
+						"range": [
+							0.1,
+							0.1
+						]
+					},
+					"minecraft:block_light_emission": 0.2
+				}
+			},
+			{
+				"condition": "query.block_property('dd:active') == 2",
+				"components": {
+					"minecraft:ticking": {
+						"looping": true,
+						"on_tick": {
+							"event": "deactivate"
+						},
+						"range": [
+							2,
+							2
+						]
+					},
+					"minecraft:block_light_emission": 0.2
+				}
+			}
+		],
+		"events": {
+			"activate": {
+				"set_block_property": {
+					"dd:active": 1
+				}
+			},
+			"check_for_activate_chamber": {
+				"run_command": {
+					"command": [
+						"execute if block ~ ~-1 ~ dd:resonance_chamber [\"dd:active\"= 0, \"dd:unit\"=1] run setblock ~ ~-1 ~ dd:resonance_chamber [\"dd:active\"= 1, \"dd:unit\"=1]"
+					]
+				},
+				"set_block_property": {
+					"dd:active": 2
+				}
+			},
+			"deactivate": {
+				"set_block_property": {
+					"dd:active": 0
+				}
+			}
+		}
+	}
+}

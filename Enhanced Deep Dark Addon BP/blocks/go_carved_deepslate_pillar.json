@@ -1,0 +1,141 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:block": {
+		"description": {
+			"identifier": "dd:go_carved_deepslate_pillar",
+			"properties": {
+				"dd:facing": [
+					0,
+					1,
+					2,
+					3
+				]
+			}
+		},
+		"components": {
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "dd_go_carved_deepslate_pillar",
+					"render_method": "opaque"
+				},
+				"down": {
+					"texture": "dd_carved_deepslate_pillar_top",
+					"render_method": "opaque"
+				},
+				"up": {
+					"texture": "dd_carved_deepslate_pillar_top",
+					"render_method": "opaque"
+				}
+			},
+			"minecraft:destroy_time": 1,
+			"minecraft:block_light_absorption": 15,
+			"minecraft:creative_category": {
+				"category": "construction",
+				"group": "itemGroup.name.stoneBrick"
+			},
+			"minecraft:explosion_resistance": 60,
+			"minecraft:map_color": "#585858"
+		},
+		"permutations": [
+			{
+				"condition": "query.block_property('dd:facing') == 0",
+				"components": {
+					"minecraft:on_interact": {
+						"event": "turn1"
+					}
+				}
+			},
+			{
+				"condition": "query.block_property('dd:facing') == 1",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "dd_go_carved_deepslate_pillar_90",
+							"render_method": "opaque"
+						},
+						"down": {
+							"texture": "dd_carved_deepslate_pillar_top",
+							"render_method": "opaque"
+						},
+						"up": {
+							"texture": "dd_carved_deepslate_pillar_top",
+							"render_method": "opaque"
+						}
+					},
+					"minecraft:unit_cube": {},
+					"minecraft:on_interact": {
+						"event": "turn2"
+					}
+				}
+			},
+			{
+				"condition": "query.block_property('dd:facing') == 2",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "dd_go_carved_deepslate_pillar_180",
+							"render_method": "opaque"
+						},
+						"down": {
+							"texture": "dd_carved_deepslate_pillar_top",
+							"render_method": "opaque"
+						},
+						"up": {
+							"texture": "dd_carved_deepslate_pillar_top",
+							"render_method": "opaque"
+						}
+					},
+					"minecraft:unit_cube": {},
+					"minecraft:on_interact": {
+						"event": "turn3"
+					}
+				}
+			},
+			{
+				"condition": "query.block_property('dd:facing') == 3",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "dd_go_carved_deepslate_pillar_270",
+							"render_method": "opaque"
+						},
+						"down": {
+							"texture": "dd_carved_deepslate_pillar_top",
+							"render_method": "opaque"
+						},
+						"up": {
+							"texture": "dd_carved_deepslate_pillar_top",
+							"render_method": "opaque"
+						}
+					},
+					"minecraft:unit_cube": {},
+					"minecraft:on_interact": {
+						"event": "turn4"
+					}
+				}
+			}
+		],
+		"events": {
+			"turn1": {
+				"set_block_property": {
+					"dd:facing": 1
+				}
+			},
+			"turn2": {
+				"set_block_property": {
+					"dd:facing": 2
+				}
+			},
+			"turn3": {
+				"set_block_property": {
+					"dd:facing": 3
+				}
+			},
+			"turn4": {
+				"set_block_property": {
+					"dd:facing": 0
+				}
+			}
+		}
+	}
+}

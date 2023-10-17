@@ -1,0 +1,109 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:block": {
+		"description": {
+			"identifier": "dd:depth_scarab_egg"
+		},
+		"components": {
+			"minecraft:geometry": "geometry.depth_scarab_egg",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "dd_depth_scarab_egg",
+					"render_method": "alpha_test",
+					"ambient_occlusion": false,
+					"face_dimming": false
+				}
+			},
+			"minecraft:pick_collision": {
+				"origin": [
+					-2,
+					0,
+					-2
+				],
+				"size": [
+					4,
+					7,
+					4
+				]
+			},
+			"minecraft:entity_collision": {
+				"origin": [
+					-2,
+					0,
+					-2
+				],
+				"size": [
+					4,
+					7,
+					4
+				]
+			},
+			"minecraft:map_color": "#b6b5b5",
+			"minecraft:block_light_emission": 0.1,
+			"minecraft:destroy_time": 1e-7,
+			"minecraft:explosion_resistance": 0.2,
+			"minecraft:loot": "loot_tables/scarab_egg.json",
+			"minecraft:random_ticking": {
+				"on_tick": {
+					"event": "hatch"
+				}
+			},
+			"minecraft:placement_filter": {
+				"conditions": [
+					{
+						"allowed_faces": [
+							"up"
+						],
+						"block_filter": [
+							"dd:depth_shale",
+							"sculk",
+							"dd:deepstone"
+						]
+					}
+				]
+			},
+			"minecraft:on_step_on": {
+				"event": "could_break"
+			}
+		},
+		"events": {
+			"hatch": {
+				"randomize": [
+					{
+						"weight": 1,
+						"set_block": {
+							"block_type": "air"
+						},
+						"run_command": {
+							"command": [
+								"summon dd:depth_scarab ~ ~ ~ minecraft:entity_born",
+								"playsound block.turtle_egg.crack @a ~ ~ ~"
+							]
+						}
+					},
+					{
+						"weight": 2
+					}
+				]
+			},
+			"could_break": {
+				"randomize": [
+					{
+						"weight": 1,
+						"set_block": {
+							"block_type": "air"
+						},
+						"run_command": {
+							"command": [
+								"playsound block.turtle_egg.crack @a ~ ~ ~"
+							]
+						}
+					},
+					{
+						"weight": 5
+					}
+				]
+			}
+		}
+	}
+}

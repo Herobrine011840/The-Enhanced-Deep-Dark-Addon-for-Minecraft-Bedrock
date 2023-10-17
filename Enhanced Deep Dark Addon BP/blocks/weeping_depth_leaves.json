@@ -1,0 +1,86 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:block": {
+		"description": {
+			"identifier": "dd:weeping_depth_leaves",
+			"properties": {
+				"dd:natural": [
+					0,
+					1
+				]
+			}
+		},
+		"components": {
+			"minecraft:block_light_absorption": 0,
+			"minecraft:map_color": "#063931",
+			"minecraft:creative_category": {
+				"category": "nature",
+				"group": "itemGroup.name.leaves"
+			},
+			"minecraft:block_light_emission": 0.4,
+			"minecraft:destroy_time": 0.1,
+			"minecraft:explosion_resistance": 0.3,
+			"minecraft:loot": "loot_tables/empty.json",
+			"minecraft:material_instances": {
+				"*": {
+					"render_method": "blend",
+					"texture": "dd_weeping_depth_leaves"
+				}
+			},
+			"minecraft:entity_collision": false,
+			"minecraft:on_player_placing": {
+				"event": "unnatural"
+			}
+		},
+		"permutations": [
+			{
+				"condition": "query.block_property('dd:natural') == 0",
+				"components": {
+					"minecraft:ticking": {
+						"looping": true,
+						"range": [
+							0.15,
+							0.2
+						],
+						"on_tick": {
+							"event": "grow_segment"
+						}
+					}
+				}
+			},
+			{
+				"condition": "query.block_property('dd:natural') == 1",
+				"components": {}
+			}
+		],
+		"events": {
+			"unnatural": {
+				"set_block_property": {
+					"dd:natural": 1
+				}
+			},
+			"grow_segment": {
+				"randomize": [
+					{
+						"weight": 2,
+						"run_command": {
+							"command": [
+								"execute if block ~ ~-1 ~ air run setblock ~ ~-1 ~ dd:weeping_depth_leaves",
+								"execute if block ~ ~-1 ~ sculk_vein run setblock ~ ~-1 ~ dd:weeping_depth_leaves",
+								"setblock ~ ~ ~ dd:weeping_depth_leaves [\"dd:natural\"=1]"
+							]
+						}
+					},
+					{
+						"weight": 1,
+						"run_command": {
+							"command": [
+								"setblock ~ ~ ~ dd:weeping_depth_leaves [\"dd:natural\"=1]"
+							]
+						}
+					}
+				]
+			}
+		}
+	}
+}

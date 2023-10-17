@@ -1,0 +1,206 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:block": {
+		"description": {
+			"identifier": "dd:ancient_portal",
+			"properties": {
+				"dd:portal_state": [
+					0,
+					1,
+					2
+				]
+			}
+		},
+		"components": {
+			"minecraft:placement_filter": {
+				"conditions": [
+					{
+						"allowed_faces": [
+							"up"
+						],
+						"block_filter": [
+							"reinforced_deepslate",
+							"dd:ancient_portal"
+						]
+					}
+				]
+			},
+			"minecraft:block_light_absorption": 0,
+			"minecraft:destroy_time": 1000000,
+			"minecraft:map_color": "#3cc7cb",
+			"minecraft:creative_category": {
+				"category": "commands",
+				"group": "commands"
+			},
+			"minecraft:material_instances": {
+				"*": {
+					"render_method": "blend",
+					"texture": "dd_ancient_portal"
+				}
+			},
+			"minecraft:explosion_resistance": 100000,
+			"minecraft:block_light_emission": 0.5,
+			"minecraft:loot": "loot_tables/empty.json",
+			"minecraft:entity_collision": false,
+			"minecraft:pick_collision": false
+		},
+		"permutations": [
+			{
+				"condition": "query.block_property('dd:portal_state') == 0",
+				"components": {
+					"minecraft:ticking": {
+						"looping": true,
+						"range": [
+							0.05,
+							0.05
+						],
+						"on_tick": {
+							"event": "portal_stage_1"
+						}
+					}
+				}
+			},
+			{
+				"condition": "query.block_property('dd:portal_state') == 1",
+				"components": {
+					"minecraft:ticking": {
+						"looping": true,
+						"range": [
+							0.05,
+							0.05
+						],
+						"on_tick": {
+							"event": "portal_stage_2"
+						}
+					}
+				}
+			},
+			{
+				"condition": "query.block_property('dd:portal_state') == 2",
+				"components": {
+					"minecraft:random_ticking": {
+						"on_tick": {
+							"event": "portal_activate"
+						}
+					}
+				}
+			}
+		],
+		"events": {
+			"portal_stage_1": {
+				"run_command": {
+					"command": [
+						"execute if block ~1 ~-1 ~ reinforced_deepslate if block ~1 ~ ~ air run setblock ~1 ~ ~ dd:ancient_portal [\"dd:portal_state\"= 0]",
+						"execute if block ~-1 ~-1 ~ reinforced_deepslate if block ~-1 ~ ~ air run setblock ~-1 ~ ~ dd:ancient_portal [\"dd:portal_state\"= 0]",
+						"execute if block ~ ~-1 ~1 reinforced_deepslate if block ~ ~ ~1 air run setblock ~ ~ ~1 dd:ancient_portal [\"dd:portal_state\"= 0]",
+						"execute if block ~ ~-1 ~-1 reinforced_deepslate if block ~ ~ ~-1 air run setblock ~ ~ ~-1 dd:ancient_portal [\"dd:portal_state\"= 0]",
+						"execute if block ~1 ~-1 ~ reinforced_deepslate if block ~1 ~ ~ sculk_vein run setblock ~1 ~ ~ dd:ancient_portal [\"dd:portal_state\"= 0]",
+						"execute if block ~-1 ~-1 ~ reinforced_deepslate if block ~-1 ~ ~ sculk_vein run setblock ~-1 ~ ~ dd:ancient_portal [\"dd:portal_state\"= 0]",
+						"execute if block ~ ~-1 ~1 reinforced_deepslate if block ~ ~ ~1 sculk_vein run setblock ~ ~ ~1 dd:ancient_portal [\"dd:portal_state\"= 0]",
+						"execute if block ~ ~-1 ~-1 reinforced_deepslate if block ~ ~ ~-1 sculk_vein run setblock ~ ~ ~-1 dd:ancient_portal [\"dd:portal_state\"= 0]"
+					]
+				},
+				"set_block_property": {
+					"dd:portal_state": 1
+				}
+			},
+			"portal_stage_2": {
+				"run_command": {
+					"command": [
+						"execute if block ~ ~1 ~ air run setblock ~ ~1 ~ dd:ancient_portal [\"dd:portal_state\"= 1]",
+						"execute if block ~ ~1 ~ sculk_vein run setblock ~ ~1 ~ dd:ancient_portal [\"dd:portal_state\"= 1]"
+					]
+				},
+				"set_block_property": {
+					"dd:portal_state": 2
+				}
+			},
+			"portal_activate": {
+				"randomize": [
+					{
+						"weight": 4
+					},
+					{
+						"weight": 4,
+						"run_command": {
+							"command": [
+								"particle dd:ancient_portal_souls ~ ~ ~",
+								"playsound bloom.sculk_catalyst @a ~ ~ ~"
+							]
+						}
+					},
+					{
+						"weight": 1,
+						"trigger": "portal_special_activate"
+					}
+				]
+			},
+			"portal_special_activate": {
+				"randomize": [
+					{
+						"weight": 12,
+						"run_command": {
+							"command": [
+								"execute if block ~ ~-1 ~ reinforced_deepslate if block ~ ~6 ~ reinforced_deepslate run summon warden"
+							]
+						}
+					},
+					{
+						"weight": 10,
+						"run_command": {
+							"command": [
+								"execute if block ~ ~-1 ~ reinforced_deepslate if block ~ ~6 ~ reinforced_deepslate run summon dd:dark_spirit"
+							]
+						}
+					},
+					{
+						"weight": 6,
+						"run_command": {
+							"command": [
+								"execute if block ~ ~-1 ~ reinforced_deepslate if block ~ ~6 ~ reinforced_deepslate run summon dd:depth_scarab"
+							]
+						}
+					},
+					{
+						"weight": 5,
+						"run_command": {
+							"command": [
+								"execute if block ~ ~-1 ~ reinforced_deepslate if block ~ ~6 ~ reinforced_deepslate run summon dd:depth_survivor"
+							]
+						}
+					},
+					{
+						"weight": 3,
+						"run_command": {
+							"command": [
+								"execute if block ~ ~-1 ~ reinforced_deepslate if block ~ ~6 ~ reinforced_deepslate if block ~ -15 ~ deepslate_tiles run setblock ~ -15 ~ dd:depth_shale [\"dd:is_spawning\"=3]",
+								"execute if block ~ ~-1 ~ reinforced_deepslate if block ~ ~6 ~ reinforced_deepslate if block ~ -15 ~ cracked_deepslate_tiles run setblock ~ -15 ~ dd:depth_shale [\"dd:is_spawning\"=3]",
+								"execute if block ~ ~-1 ~ reinforced_deepslate if block ~ ~6 ~ reinforced_deepslate if block ~ -15 ~ dd:deepstone_bricks run setblock ~ -15 ~ dd:depth_shale [\"dd:is_spawning\"=3]",
+								"execute if block ~ ~-1 ~ reinforced_deepslate if block ~ ~6 ~ reinforced_deepslate if block ~ -15 ~ dd:cracked_deepstone_bricks run setblock ~ -15 ~ dd:depth_shale [\"dd:is_spawning\"=3]",
+								"execute if block ~ ~-1 ~ reinforced_deepslate if block ~ ~6 ~ reinforced_deepslate if block ~ -15 ~ cobbled_deepslate run setblock ~ -15 ~ dd:depth_shale [\"dd:is_spawning\"=3]",
+								"execute if block ~ ~-1 ~ reinforced_deepslate if block ~ ~6 ~ reinforced_deepslate if block ~ -15 ~ dd:depth_shale run setblock ~ -15 ~ dd:depth_shale [\"dd:is_spawning\"=3]",
+								"execute if block ~ ~-1 ~ reinforced_deepslate if block ~ ~6 ~ reinforced_deepslate if block ~ -15 ~ deepslate run setblock ~ -15 ~ dd:depth_shale [\"dd:is_spawning\"=3]"
+							]
+						}
+					},
+					{
+						"weight": 3,
+						"run_command": {
+							"command": [
+								"execute if block ~ ~-1 ~ reinforced_deepslate if block ~ ~6 ~ reinforced_deepslate if block ~ -54 ~ deepslate run setblock ~ -54 ~ dd:depth_shale [\"dd:is_spawning\"=3]"
+							]
+						}
+					},
+					{
+						"weight": 1,
+						"run_command": {
+							"command": [
+								"execute if block ~ ~-1 ~ reinforced_deepslate if block ~ ~6 ~ reinforced_deepslate run summon dd:leviathan_bringer"
+							]
+						}
+					}
+				]
+			}
+		}
+	}
+}

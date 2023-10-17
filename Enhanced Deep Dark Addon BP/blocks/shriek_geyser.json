@@ -1,0 +1,37 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:block": {
+		"description": {
+			"identifier": "dd:shriek_geyser"
+		},
+		"components": {
+			"minecraft:block_light_absorption": 15,
+			"minecraft:destroy_time": 0.4,
+			"minecraft:map_color": "#5a66af",
+			"minecraft:creative_category": {
+				"category": "nature",
+				"group": "itemGroup.name.stone"
+			},
+			"minecraft:explosion_resistance": 4000,
+			"minecraft:random_ticking": {
+				"on_tick": {
+					"event": "shriek"
+				}
+			},
+			"minecraft:on_fall_on": {
+				"min_fall_distance": 4,
+				"event": "shriek"
+			}
+		},
+		"events": {
+			"shriek": {
+				"run_command": {
+					"command": [
+						"particle dd:shriek_geyser_shriek ~ ~ ~",
+						"playsound shriek.sculk_shrieker @a ~ ~ ~ 1 0.5"
+					]
+				}
+			}
+		}
+	}
+}

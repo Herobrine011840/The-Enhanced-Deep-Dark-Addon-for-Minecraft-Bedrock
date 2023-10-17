@@ -1,0 +1,55 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:block": {
+		"description": {
+			"identifier": "dd:crystal_grower",
+			"properties": {
+				"dd:active": [
+					0,
+					1
+				]
+			}
+		},
+		"components": {
+			"minecraft:block_light_absorption": 15,
+			"minecraft:map_color": "#202326",
+			"minecraft:creative_category": {
+				"category": "items",
+				"group": "items"
+			},
+			"minecraft:destroy_time": 1,
+			"minecraft:explosion_resistance": 100
+		},
+		"permutations": [
+			{
+				"condition": "query.block_property('dd:active') == 0",
+				"components": {}
+			},
+			{
+				"condition": "query.block_property('dd:active') == 1",
+				"components": {
+					"minecraft:random_ticking": {
+						"on_tick": {
+							"event": "grow_crystal"
+						}
+					},
+					"minecraft:block_light_emission": 0.2
+				}
+			}
+		],
+		"events": {
+			"grow_crystal": {
+				"run_command": {
+					"command": [
+						"execute if block ~ ~1 ~ large_amethyst_bud [\"facing_direction\"=1] run setblock ~ ~1 ~ amethyst_cluster [\"facing_direction\"=1]",
+						"execute if block ~ ~1 ~ medium_amethyst_bud [\"facing_direction\"=1] run setblock ~ ~1 ~ large_amethyst_bud [\"facing_direction\"=1]",
+						"execute if block ~ ~1 ~ small_amethyst_bud [\"facing_direction\"=1] run setblock ~ ~1 ~ medium_amethyst_bud [\"facing_direction\"=1]"
+					]
+				},
+				"set_block_property": {
+					"dd:active": 0
+				}
+			}
+		}
+	}
+}

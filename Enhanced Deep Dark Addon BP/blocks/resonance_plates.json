@@ -1,0 +1,256 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:block": {
+		"description": {
+			"identifier": "dd:resonance_plates",
+			"properties": {
+				"dd:charged": [
+					0,
+					1,
+					2,
+					3,
+					4,
+					5,
+					6,
+					7,
+					8
+				]
+			}
+		},
+		"permutations": [
+			{
+				"condition": "query.block_property('dd:charged') == 0",
+				"components": {}
+			},
+			{
+				"condition": "query.block_property('dd:charged') == 3",
+				"components": {
+					"minecraft:ticking": {
+						"on_tick": {
+							"event": "activate_y"
+						},
+						"looping": true,
+						"range": [
+							0.01,
+							0.01
+						]
+					}
+				}
+			},
+			{
+				"condition": "query.block_property('dd:charged') == 1",
+				"components": {
+					"minecraft:rotation": [
+						90,
+						0,
+						0
+					],
+					"minecraft:unit_cube": {}
+				}
+			},
+			{
+				"condition": "query.block_property('dd:charged') == 4",
+				"components": {
+					"minecraft:ticking": {
+						"on_tick": {
+							"event": "activate_z"
+						},
+						"looping": true,
+						"range": [
+							0.01,
+							0.01
+						]
+					},
+					"minecraft:rotation": [
+						90,
+						0,
+						0
+					],
+					"minecraft:unit_cube": {}
+				}
+			},
+			{
+				"condition": "query.block_property('dd:charged') == 2",
+				"components": {
+					"minecraft:rotation": [
+						0,
+						90,
+						-90
+					],
+					"minecraft:unit_cube": {}
+				}
+			},
+			{
+				"condition": "query.block_property('dd:charged') == 5",
+				"components": {
+					"minecraft:ticking": {
+						"on_tick": {
+							"event": "activate_x"
+						},
+						"looping": true,
+						"range": [
+							0.01,
+							0.01
+						]
+					},
+					"minecraft:rotation": [
+						0,
+						90,
+						-90
+					],
+					"minecraft:unit_cube": {}
+				}
+			},
+			{
+				"condition": "query.block_property('dd:charged') == 6",
+				"components": {
+					"minecraft:ticking": {
+						"on_tick": {
+							"event": "complete_cooldown_y"
+						},
+						"looping": true,
+						"range": [
+							0.5,
+							0.5
+						]
+					}
+				}
+			},
+			{
+				"condition": "query.block_property('dd:charged') == 7",
+				"components": {
+					"minecraft:ticking": {
+						"on_tick": {
+							"event": "complete_cooldown_z"
+						},
+						"looping": true,
+						"range": [
+							0.5,
+							0.5
+						]
+					},
+					"minecraft:rotation": [
+						90,
+						0,
+						0
+					],
+					"minecraft:unit_cube": {}
+				}
+			},
+			{
+				"condition": "query.block_property('dd:charged') == 8",
+				"components": {
+					"minecraft:ticking": {
+						"on_tick": {
+							"event": "complete_cooldown_x"
+						},
+						"looping": true,
+						"range": [
+							0.5,
+							0.5
+						]
+					},
+					"minecraft:rotation": [
+						0,
+						90,
+						-90
+					],
+					"minecraft:unit_cube": {}
+				}
+			}
+		],
+		"components": {
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "dd_resonance_plates",
+					"render_method": "opaque"
+				},
+				"down": {
+					"texture": "dd_resonance_plates_up",
+					"render_method": "opaque"
+				},
+				"up": {
+					"texture": "dd_resonance_plates_up",
+					"render_method": "opaque"
+				}
+			},
+			"minecraft:on_player_placing": {
+				"event": "on_player_placing",
+				"target": "self"
+			},
+			"minecraft:creative_category": {
+				"category": "nature",
+				"group": "itemGroup.name.ore"
+			},
+			"minecraft:destroy_time": 2,
+			"minecraft:block_light_absorption": 15,
+			"minecraft:explosion_resistance": 100,
+			"minecraft:map_color": "#80849b",
+			"minecraft:loot": "loot_tables/resonance_plates.json"
+		},
+		"events": {
+			"on_player_placing": {
+				"set_block_property": {
+					"dd:charged": "math.floor(query.block_face/2)"
+				}
+			},
+			"complete_cooldown_y": {
+				"set_block_property": {
+					"dd:charged": 0
+				}
+			},
+			"complete_cooldown_z": {
+				"set_block_property": {
+					"dd:charged": 1
+				}
+			},
+			"complete_cooldown_x": {
+				"set_block_property": {
+					"dd:charged": 2
+				}
+			},
+			"activate_y": {
+				"run_command": {
+					"command": [
+						"execute if block ~ ~1 ~ dd:resonance_chamber [\"dd:active\"= 0, \"dd:unit\"=1] run setblock ~ ~1 ~ dd:resonance_chamber [\"dd:active\"= 1, \"dd:unit\"=1]",
+						"execute if block ~ ~-1 ~ dd:resonance_chamber [\"dd:active\"= 0, \"dd:unit\"=1] run setblock ~ ~-1 ~ dd:resonance_chamber [\"dd:active\"= 1, \"dd:unit\"=1]",
+						"execute if block ~ ~1 ~ dd:resonance_plates [\"dd:charged\"= 0] run setblock ~ ~1 ~ dd:resonance_plates [\"dd:charged\"= 3]",
+						"execute if block ~ ~-1 ~ dd:resonance_plates [\"dd:charged\"= 0] run setblock ~ ~-1 ~ dd:resonance_plates [\"dd:charged\"= 3]",
+						"playsound dig.fungus @a ~ ~ ~"
+					]
+				},
+				"set_block_property": {
+					"dd:charged": 6
+				}
+			},
+			"activate_z": {
+				"run_command": {
+					"command": [
+						"execute if block ~ ~ ~1 dd:resonance_chamber [\"dd:active\"= 0, \"dd:unit\"=1] run setblock ~ ~ ~1 dd:resonance_chamber [\"dd:active\"= 1, \"dd:unit\"=1]",
+						"execute if block ~ ~ ~-1 dd:resonance_chamber [\"dd:active\"= 0, \"dd:unit\"=1] run setblock ~ ~ ~-1 dd:resonance_chamber [\"dd:active\"= 1, \"dd:unit\"=1]",
+						"execute if block ~ ~ ~1 dd:resonance_plates [\"dd:charged\"= 1] run setblock ~ ~ ~1 dd:resonance_plates [\"dd:charged\"= 4]",
+						"execute if block ~ ~ ~-1 dd:resonance_plates [\"dd:charged\"= 1] run setblock ~ ~ ~-1 dd:resonance_plates [\"dd:charged\"= 4]",
+						"playsound dig.fungus @a ~ ~ ~"
+					]
+				},
+				"set_block_property": {
+					"dd:charged": 7
+				}
+			},
+			"activate_x": {
+				"run_command": {
+					"command": [
+						"execute if block ~1 ~ ~ dd:resonance_chamber [\"dd:active\"= 0, \"dd:unit\"=1] run setblock ~1 ~ ~ dd:resonance_chamber [\"dd:active\"= 1, \"dd:unit\"=1]",
+						"execute if block ~-1 ~ ~ dd:resonance_chamber [\"dd:active\"= 0, \"dd:unit\"=1] run setblock ~-1 ~ ~ dd:resonance_chamber [\"dd:active\"= 1, \"dd:unit\"=1]",
+						"execute if block ~1 ~ ~ dd:resonance_plates [\"dd:charged\"= 2] run setblock ~1 ~ ~ dd:resonance_plates [\"dd:charged\"= 5]",
+						"execute if block ~-1 ~ ~ dd:resonance_plates [\"dd:charged\"= 2] run setblock  ~-1 ~ ~ dd:resonance_plates [\"dd:charged\"= 5]",
+						"playsound dig.fungus @a ~ ~ ~"
+					]
+				},
+				"set_block_property": {
+					"dd:charged": 8
+				}
+			}
+		}
+	}
+}

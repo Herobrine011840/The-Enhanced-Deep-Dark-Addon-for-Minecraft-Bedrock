@@ -1,0 +1,132 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:block": {
+		"description": {
+			"identifier": "dd:vibration_forcefield_controller",
+			"properties": {
+				"dd:active": [
+					0,
+					1,
+					2,
+					3
+				]
+			}
+		},
+		"components": {
+			"minecraft:block_light_absorption": 15,
+			"minecraft:map_color": "#202326",
+			"minecraft:creative_category": {
+				"category": "items",
+				"group": "items"
+			},
+			"minecraft:destroy_time": 1,
+			"minecraft:explosion_resistance": 100
+		},
+		"permutations": [
+			{
+				"condition": "query.block_property('dd:active') == 0",
+				"components": {}
+			},
+			{
+				"condition": "query.block_property('dd:active') == 1",
+				"components": {
+					"minecraft:ticking": {
+						"looping": true,
+						"on_tick": {
+							"event": "start_forcefield"
+						},
+						"range": [
+							0.2,
+							0.2
+						]
+					},
+					"minecraft:material_instances": {
+						"*": {
+							"render_method": "opaque",
+							"texture": "dd_vibration_forcefield_controller_active"
+						}
+					},
+					"minecraft:unit_cube": {}
+				}
+			},
+			{
+				"condition": "query.block_property('dd:active') == 2",
+				"components": {
+					"minecraft:ticking": {
+						"looping": true,
+						"on_tick": {
+							"event": "forcefield"
+						},
+						"range": [
+							0.9,
+							0.9
+						]
+					},
+					"minecraft:material_instances": {
+						"*": {
+							"render_method": "opaque",
+							"texture": "dd_vibration_forcefield_controller_active"
+						}
+					},
+					"minecraft:unit_cube": {}
+				}
+			},
+			{
+				"condition": "query.block_property('dd:active') == 3",
+				"components": {
+					"minecraft:ticking": {
+						"looping": true,
+						"on_tick": {
+							"event": "forcefield_down"
+						},
+						"range": [
+							0.1,
+							0.1
+						]
+					},
+					"minecraft:material_instances": {
+						"*": {
+							"render_method": "opaque",
+							"texture": "dd_vibration_forcefield_controller_active"
+						}
+					},
+					"minecraft:unit_cube": {}
+				}
+			}
+		],
+		"events": {
+			"forcefield": {
+				"run_command": {
+					"command": [
+						"fill ~ ~ ~ ~ ~3 ~ dd:vibration_forcefield [\"dd:ticking\"=0] replace air",
+						"fill ~ ~ ~ ~ ~3 ~ dd:vibration_forcefield  [\"dd:ticking\"=0] replace sculk_vein",
+						"fill ~ ~ ~ ~ ~3 ~ dd:vibration_forcefield  [\"dd:ticking\"=0] replace dd:vibration_forcefield"
+					]
+				}
+			},
+			"start_forcefield": {
+				"set_block_property": {
+					"dd:active": 2
+				},
+				"run_command": {
+					"command": [
+						"playsound beacon.activate @a",
+						"fill ~ ~ ~ ~ ~3 ~ dd:vibration_forcefield [\"dd:ticking\"=0] replace air",
+						"fill ~ ~ ~ ~ ~3 ~ dd:vibration_forcefield  [\"dd:ticking\"=0] replace sculk_vein",
+						"fill ~ ~ ~ ~ ~3 ~ dd:vibration_forcefield  [\"dd:ticking\"=0] replace dd:vibration_forcefield"
+					]
+				}
+			},
+			"forcefield_down": {
+				"set_block_property": {
+					"dd:active": 0
+				},
+				"run_command": {
+					"command": [
+						"playsound beacon.deactivate @a"
+					]
+				}
+			}
+		}
+	}
+}
