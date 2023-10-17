@@ -1,0 +1,91 @@
+{
+	"format_version": "1.10.0",
+	"animation_controllers": {
+		"controller.animation.forgotten_vanguard": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [
+						{
+							"walk": "query.modified_move_speed"
+						}
+					],
+					"transitions": [
+						{
+							"attack": "variable.attack_time>0"
+						},
+						{
+							"bone_pile": "query.is_sheared"
+						},
+						{
+							"raising_shield": "query.is_tamed"
+						},
+						{
+							"dead": "!query.is_alive"
+						}
+					]
+				},
+				"attack": {
+					"animations": [
+						"melee_attack"
+					],
+					"transitions": [
+						{
+							"default": "variable.attack_time<=0"
+						}
+					]
+				},
+				"bone_pile": {
+					"blend_transition": 0.4,
+					"blend_via_shortest_path": true,
+					"animations": [
+						"bone_pile"
+					],
+					"transitions": [
+						{
+							"default": "!query.is_sheared"
+						}
+					]
+				},
+				"raising_shield": {
+					"animations": [
+						"raising_shield",
+						{
+							"walk": "query.modified_move_speed"
+						}
+					],
+					"transitions": [
+						{
+							"default": "!query.is_tamed"
+						},
+						{
+							"shield_attack": "variable.attack_time>0"
+						}
+					]
+				},
+				"shield_attack": {
+					"animations": [
+						"raising_shield",
+						{
+							"walk": "query.modified_move_speed"
+						},
+						"melee_attack"
+					],
+					"transitions": [
+						{
+							"default": "!query.is_tamed"
+						},
+						{
+							"raising_shield": "variable.attack_time<=0"
+						}
+					]
+				},
+				"dead": {
+					"animations": [
+						"dead"
+					]
+				}
+			}
+		}
+	}
+}

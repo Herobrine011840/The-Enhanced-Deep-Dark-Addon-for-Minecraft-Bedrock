@@ -1,0 +1,19 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.abyssal_wisp.attack.rotations": {
+			"loop": true
+		},
+		"animation.abyssal_wisp.move": {
+			"animation_length": 1,
+			"loop": true,
+			"anim_time_update": "query.modified_distance_moved",
+			"particle_effects": {
+				"0.0": {
+					"effect": "wisp_emitter",
+					"locator": "wisp_emitter"
+				}
+			}
+		}
+	}
+}

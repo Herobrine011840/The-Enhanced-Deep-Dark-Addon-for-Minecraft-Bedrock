@@ -1,0 +1,50 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "dd:leviathan_bringer",
+			"min_engine_version": "1.8.0",
+			"materials": {
+				"default": "entity_alphatest"
+			},
+			"textures": {
+				"default": "textures/entity/leviathan_bringer"
+			},
+			"geometry": {
+				"default": "geometry.leviathan_bringer"
+			},
+			"scripts": {
+				"scale": "0.9375",
+				"animate": [
+					"controller_general",
+					"controller_move",
+					{
+						"death": "!query.is_alive"
+					}
+				]
+			},
+			"animations": {
+				"general": "animation.leviathan_bringer.general",
+				"casting": "animation.leviathan_bringer.casting",
+				"look_at_target": "animation.common.look_at_target",
+				"move": "animation.leviathan_bringer.move",
+				"riding.legs": "animation.humanoid.riding.legs",
+				"celebrating": "animation.humanoid.celebrating",
+				"controller_general": "controller.animation.leviathan_bringer.general",
+				"controller_move": "controller.animation.villager.move",
+				"controller_riding": "controller.animation.humanoid.riding_legs_only",
+				"dead": "animation.leviathan_bringer.death"
+			},
+			"particle_effects": {
+				"spell": "minecraft:evoker_spell"
+			},
+			"render_controllers": [
+				"controller.render.leviathan_bringer"
+			],
+			"spawn_egg": {
+				"base_color": "#105657",
+				"overlay_color": "#80849b"
+			}
+		}
+	}
+}

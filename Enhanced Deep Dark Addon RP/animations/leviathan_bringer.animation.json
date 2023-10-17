@@ -1,0 +1,141 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.leviathan_bringer.casting": {
+			"loop": true,
+			"bones": {
+				"arms": {
+					"scale": 0
+				},
+				"leftarm": {
+					"rotation": [
+						"math.cos(query.life_time*763.4)*14.3239-this",
+						"-this",
+						"-135-this"
+					],
+					"scale": 1
+				},
+				"rightarm": {
+					"rotation": [
+						"math.cos(query.life_time*763.4)*14.3239-this",
+						"-this",
+						"135-this"
+					],
+					"scale": 1
+				}
+			}
+		},
+		"animation.leviathan_bringer.casting.v1.0": {
+			"loop": true,
+			"bones": {
+				"leftarm": {
+					"position": [
+						"5-this",
+						0,
+						"-this"
+					],
+					"rotation": [
+						"math.cos(query.life_time*763.4)*14.3239-this",
+						"-this",
+						"-135-this"
+					]
+				},
+				"rightarm": {
+					"position": [
+						"-5-this",
+						0,
+						"-this"
+					],
+					"rotation": [
+						"math.cos(query.life_time*763.4)*14.3239-this",
+						"-this",
+						"135-this"
+					]
+				}
+			}
+		},
+		"animation.leviathan_bringer.general": {
+			"loop": true,
+			"bones": {
+				"arms": {
+					"rotation": [
+						"-42.97-this",
+						"-this",
+						"-this"
+					],
+					"position": [
+						0,
+						-1,
+						-1
+					],
+					"scale": 1
+				},
+				"leftArm": {
+					"scale": 0
+				},
+				"rightArm": {
+					"scale": 0
+				}
+			}
+		},
+		"animation.leviathan_bringer.move": {
+			"anim_time_update": "query.modified_distance_moved",
+			"loop": true,
+			"bones": {
+				"leg0": {
+					"rotation": [
+						"(math.cos(query.anim_time*38.17)*40)-this",
+						"-this",
+						0
+					]
+				},
+				"leg1": {
+					"rotation": [
+						"(math.cos(query.anim_time*38.17+180)*40)-this",
+						"-this",
+						0
+					]
+				}
+			}
+		},
+		"animation.leviathan_bringer.death": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 1,
+			"bones": {
+				"head": {
+					"rotation": [
+						-67,
+						3,
+						-81
+					]
+				},
+				"arms": {
+					"scale": 0
+				},
+				"rightArm": {
+					"rotation": [
+						"math.cos(query.life_time*763.4)*14.3239-this",
+						"-this",
+						"135-this"
+					],
+					"scale": 1
+				},
+				"leftArm": {
+					"rotation": [
+						"math.cos(query.life_time*763.4)*14.3239-this",
+						"-this",
+						"-135-this"
+					],
+					"scale": 1
+				},
+				"body": {
+					"rotation": [
+						0,
+						0,
+						"math.min(math.sqrt(math.max(0,query.anim_time*20-0.5)/20*1.6),1)*-90"
+					]
+				}
+			}
+		}
+	}
+}

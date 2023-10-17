@@ -1,0 +1,62 @@
+{
+	"format_version": "1.8.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "dd:forgotten_vanguard",
+			"min_engine_version": "1.8.0",
+			"materials": {
+				"default": "skeleton"
+			},
+			"textures": {
+				"default": "textures/entity/forgotten_vanguard"
+			},
+			"geometry": {
+				"default": "geometry.forgotten_vanguard"
+			},
+			"spawn_egg": {
+				"base_color": "#9a9977",
+				"overlay_color": "#17cbbd"
+			},
+			"scripts": {
+				"pre_animation": [
+					"variable.tcos0 = (Math.cos(query.modified_distance_moved * 38.17) * query.modified_move_speed / variable.gliding_speed_value) * 57.3;"
+				]
+			},
+			"animations": {
+				"look_at_target_default": "animation.humanoid.look_at_target.default",
+				"look_at_target_gliding": "animation.humanoid.look_at_target.gliding",
+				"look_at_target_swimming": "animation.humanoid.look_at_target.swimming",
+				"riding.arms": "animation.humanoid.riding.arms",
+				"riding.legs": "animation.humanoid.riding.legs",
+				"holding": "animation.humanoid.holding",
+				"bob": "animation.humanoid.bob",
+				"walk": "animation.forgotten_vanguard.walk",
+				"melee_attack": "animation.forgotten_vanguard.attack",
+				"bone_pile": "animation.forgotten_vanguard.bone_pile",
+				"raising_shield": "animation.forgotten_vanguard.raise_shield",
+				"dead": "animation.forgotten_vanguard.dead"
+			},
+			"animation_controllers": [
+				{
+					"look_at_target": "controller.animation.humanoid.look_at_target"
+				},
+				{
+					"main_controller": "controller.animation.forgotten_vanguard"
+				},
+				{
+					"riding": "controller.animation.humanoid.riding"
+				},
+				{
+					"holding": "controller.animation.humanoid.holding"
+				}
+			],
+			"render_controllers": [
+				"controller.render.default"
+			],
+			"enable_attachables": true,
+			"particle_effects": {
+				"detect_range": "dd:forgotten_vanguard_detect"
+			}
+		}
+	}
+}

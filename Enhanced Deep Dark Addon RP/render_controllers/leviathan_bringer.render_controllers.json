@@ -1,0 +1,30 @@
+{
+	"format_version": "1.8.0",
+	"render_controllers": {
+		"controller.render.leviathan_bringer": {
+			"geometry": "geometry.default",
+			"materials": [
+				{
+					"*": "material.default"
+				}
+			],
+			"part_visibility": [
+				{
+					"*": true
+				},
+				{
+					"arms": "(!query.is_casting || !query.is_celebrating || query.is_alive)"
+				},
+				{
+					"leftarm": "query.is_casting || query.is_celebrating || !query.is_alive"
+				},
+				{
+					"rightarm": "query.is_casting || query.is_celebrating || !query.is_alive"
+				}
+			],
+			"textures": [
+				"texture.default"
+			]
+		}
+	}
+}
