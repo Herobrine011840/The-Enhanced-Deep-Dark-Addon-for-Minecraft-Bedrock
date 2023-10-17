@@ -1,0 +1,20 @@
+{
+	"format_version": "1.18.20",
+	"minecraft:structure_template_feature": {
+		"description": {
+			"identifier": "dd:ancient_city_portal_top_suspicious_gravel"
+		},
+		"structure_name": "mystructure:ancient_city_portal_top_suspicious_gravel",
+		"adjustment_radius": 16,
+		"constraints": {
+			"grounded": {},
+			"block_intersection": {
+				"block_allowlist": [
+					"cobbled_deepslate",
+					"dd:deepstone_bricks",
+					"dd:cracked_deepstone_bricks"
+				]
+			}
+		}
+	}
+}

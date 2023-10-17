@@ -1,0 +1,22 @@
+{
+	"format_version": "1.18.20",
+	"minecraft:weighted_random_feature": {
+		"description": {
+			"identifier": "dd:altar_random"
+		},
+		"features": [
+			[
+				"dd:altar_1",
+				2
+			],
+			[
+				"dd:altar_2",
+				2
+			],
+			[
+				"dd:altar_3",
+				1
+			]
+		]
+	}
+}

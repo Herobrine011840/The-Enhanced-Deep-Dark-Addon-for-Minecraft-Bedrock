@@ -1,0 +1,31 @@
+{
+	"format_version": "1.18.20",
+	"minecraft:growing_plant_feature": {
+		"description": {
+			"identifier": "dd:climbing_undergrowth"
+		},
+		"height_distribution": [
+			[
+				{
+					"range_min": 3,
+					"range_max": 5
+				},
+				1
+			]
+		],
+		"allow_water": false,
+		"growth_direction": "UP",
+		"body_blocks": [
+			[
+				"dd:climbing_undergrowth",
+				1
+			]
+		],
+		"head_blocks": [
+			[
+				"dd:climbing_undergrowth",
+				1
+			]
+		]
+	}
+}

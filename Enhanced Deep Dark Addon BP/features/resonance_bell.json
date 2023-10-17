@@ -1,0 +1,25 @@
+{
+	"format_version": "1.18.20",
+	"minecraft:single_block_feature": {
+		"description": {
+			"identifier": "dd:resonance_bell"
+		},
+		"places_block": "dd:resonance_bell",
+		"enforce_placement_rules": false,
+		"enforce_survivability_rules": false,
+		"may_replace": [
+			"sculk_vein",
+			"air"
+		],
+		"may_attach_to": {
+			"top": [
+				"deepslate_bricks",
+				"cracked_deepslate_bricks",
+				"deepslate_tiles",
+				"cracked_deepslate_tiles",
+				"dd:deepstone_bricks",
+				"dd:cracked_deepstone_bricks"
+			]
+		}
+	}
+}

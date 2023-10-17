@@ -1,0 +1,31 @@
+{
+	"format_version": "1.18.20",
+	"minecraft:growing_plant_feature": {
+		"description": {
+			"identifier": "dd:echo_root"
+		},
+		"height_distribution": [
+			[
+				{
+					"range_min": 2,
+					"range_max": 13
+				},
+				1
+			]
+		],
+		"allow_water": false,
+		"growth_direction": "DOWN",
+		"body_blocks": [
+			[
+				"dd:echo_roots",
+				1
+			]
+		],
+		"head_blocks": [
+			[
+				"dd:echo_root_bulb",
+				1
+			]
+		]
+	}
+}
