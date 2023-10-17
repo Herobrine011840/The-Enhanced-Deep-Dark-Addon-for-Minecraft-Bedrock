@@ -1,0 +1,19 @@
+{
+    "pools": [
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "loot_table",
+                    "weight": 3,
+                    "name": "loot_tables/ancient_city_ice_box_common.json"
+                },
+                {
+                    "type": "loot_table",
+                    "weight": 1,
+                    "name": "loot_tables/ancient_city_ice_box_rare.json"
+                }
+            ]
+        }
+    ]
+}

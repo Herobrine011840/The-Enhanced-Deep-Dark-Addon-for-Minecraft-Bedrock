@@ -1,0 +1,43 @@
+{
+	"pools": [
+		{
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "item",
+					"weight": 1,
+					"name": "netherite_sword",
+					"functions": [
+						{
+							"function": "specific_enchants",
+							"enchants": [
+								{
+									"id": "vanishing",
+									"level": 1
+								},
+								{
+									"id": "sharpness",
+									"level": [
+										1,
+										5
+									]
+								},
+								{
+									"id": "fire_aspect",
+									"level": [
+										1,
+										2
+									]
+								},
+								{
+									"id": "knockback",
+									"level": 2
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}

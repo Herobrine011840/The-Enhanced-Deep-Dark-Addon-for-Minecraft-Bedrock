@@ -1,0 +1,24 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "loot_table",
+          "weight": 42,
+          "name": "loot_tables/ancient_city_common.json"
+        },
+        {
+          "type": "loot_table",
+          "weight": 7,
+          "name": "loot_tables/ancient_city_rare.json"
+        },
+        {
+          "type": "loot_table",
+          "weight": 1,
+          "name": "loot_tables/ancient_city_legendary.json"
+        }
+      ]
+    }
+  ]
+}

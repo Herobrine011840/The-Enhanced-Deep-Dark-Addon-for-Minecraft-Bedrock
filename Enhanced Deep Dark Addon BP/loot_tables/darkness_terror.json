@@ -1,0 +1,24 @@
+{
+	"pools": [
+		{
+			"rolls": 1,
+			"conditions": [
+				{
+					"condition": "killed_by_player"
+				},
+				{
+					"condition": "random_chance_with_looting",
+					"chance": 0.11,
+					"looting_multiplier": 0.13
+				}
+			],
+			"entries": [
+				{
+					"type": "item",
+					"name": "dd:go_deepslate_sigil",
+					"weight": 1
+				}
+			]
+		}
+	]
+}

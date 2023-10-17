@@ -1,0 +1,21 @@
+{
+	"pools": [
+		{
+			"rolls": 1,
+			"conditions": [
+				{
+					"condition": "match_tool",
+					"count": 1,
+					"item": "minecraft:netherite_pickaxe"
+				}
+			],
+			"entries": [
+				{
+					"type": "item",
+					"name": "dd:resonance_plates",
+					"weight": 1
+				}
+			]
+		}
+	]
+}
