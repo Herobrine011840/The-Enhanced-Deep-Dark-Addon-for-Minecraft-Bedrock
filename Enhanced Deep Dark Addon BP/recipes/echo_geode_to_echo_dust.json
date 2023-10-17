@@ -1,0 +1,25 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_shapeless": {
+		"description": {
+			"identifier": "dd:echo_geode_to_echo_dust"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"ingredients": [
+			{
+				"count": 1,
+				"item": "dd:echo_geode"
+			},
+			{
+				"count": 1,
+				"item": "stone_pickaxe"
+			}
+		],
+		"result": {
+			"count": 12,
+			"item": "dd:echo_dust"
+		}
+	}
+}

@@ -1,0 +1,34 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "dd:portal_closer"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"D": {
+				"item": "dd:echo_dust"
+			},
+			"E": {
+				"item": "dd:echo_crystal_block"
+			},
+			"V": {
+				"item": "dd:vibration_silver_ingot"
+			},
+			"W": {
+				"item": "dd:wardenstone"
+			}
+		},
+		"pattern": [
+			"WVW",
+			"DED",
+			"WDW"
+		],
+		"result": {
+			"count": 1,
+			"item": "dd:portal_closer"
+		}
+	}
+}
