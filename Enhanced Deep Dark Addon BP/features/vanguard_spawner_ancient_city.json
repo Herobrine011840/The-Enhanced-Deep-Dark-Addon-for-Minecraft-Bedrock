@@ -1,0 +1,22 @@
+{
+	"format_version": "1.18.20",
+	"minecraft:vegetation_patch_feature": {
+		"description": {
+			"identifier": "dd:vanguard_spawner_ancient_city"
+		},
+		"replaceable_blocks": [
+			"cobbled_deepslate"
+		],
+		"ground_block": "cobbled_deepslate",
+		"vegetation_feature": "dd:vanguard_spawner_scatter",
+		"surface": "floor",
+		"depth": {
+			"range_min": 1,
+			"range_max": 1
+		},
+		"vertical_range": 1,
+		"vegetation_chance": 1,
+		"horizontal_radius": 0,
+		"extra_edge_column_chance": 0
+	}
+}

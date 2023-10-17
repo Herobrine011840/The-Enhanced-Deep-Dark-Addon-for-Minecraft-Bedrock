@@ -1,0 +1,27 @@
+{
+	"format_version": "1.17.0",
+	"minecraft:ore_feature": {
+		"description": {
+			"identifier": "dd:wardenstone_feature"
+		},
+		"count": 21,
+		"replace_rules": [
+			{
+				"places_block": {
+					"name": "dd:wardenstone"
+				},
+				"may_replace": [
+					"deepslate"
+				]
+			},
+			{
+				"places_block": {
+					"name": "dd:chiseled_wardenstone"
+				},
+				"may_replace": [
+					"chiseled_deepslate"
+				]
+			}
+		]
+	}
+}
