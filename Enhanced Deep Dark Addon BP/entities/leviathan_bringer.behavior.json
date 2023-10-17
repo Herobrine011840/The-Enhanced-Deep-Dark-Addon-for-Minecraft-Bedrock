@@ -1,0 +1,128 @@
+{
+	"format_version": "1.16.0",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "dd:leviathan_bringer",
+			"is_spawnable": true,
+			"is_summonable": true,
+			"is_experimental": false
+		},
+		"components": {
+			"minecraft:experience_reward": {
+				"on_death": "8"
+			},
+			"minecraft:type_family": {
+				"family": [
+					"warden",
+					"monster",
+					"illager",
+					"mob"
+				]
+			},
+			"minecraft:breathable": {
+				"total_supply": 15,
+				"suffocate_time": 0
+			},
+			"minecraft:nameable": {},
+			"minecraft:loot": {
+				"table": "loot_tables/leviathan_bringer.json"
+			},
+			"minecraft:health": {
+				"value": 32,
+				"max": 32
+			},
+			"minecraft:hurt_on_condition": {
+				"damage_conditions": [
+					{
+						"filters": {
+							"test": "in_lava",
+							"subject": "self",
+							"operator": "==",
+							"value": true
+						},
+						"cause": "lava",
+						"damage_per_tick": 1
+					}
+				]
+			},
+			"minecraft:collision_box": {
+				"width": 0.6,
+				"height": 1.9
+			},
+			"minecraft:movement": {
+				"value": 0.4
+			},
+			"minecraft:navigation.walk": {
+				"can_path_over_water": true,
+				"can_pass_doors": true,
+				"can_open_doors": true,
+				"avoid_water": true
+			},
+			"minecraft:movement.basic": {},
+			"minecraft:jump.static": {},
+			"minecraft:can_climb": {},
+			"minecraft:behavior.float": {
+				"priority": 0
+			},
+			"minecraft:behavior.avoid_mob_type": {
+				"priority": 5,
+				"entity_types": [
+					{
+						"filters": {
+							"test": "is_family",
+							"subject": "other",
+							"value": "player"
+						},
+						"max_dist": 8,
+						"walk_speed_multiplier": 0.6,
+						"sprint_speed_multiplier": 1
+					}
+				]
+			},
+			"minecraft:behavior.random_stroll": {
+				"priority": 8,
+				"speed_multiplier": 0.6
+			},
+			"minecraft:behavior.look_at_player": {
+				"priority": 9,
+				"look_distance": 3,
+				"probability": 1
+			},
+			"minecraft:behavior.look_at_entity": {
+				"priority": 10,
+				"look_distance": 8,
+				"filters": {
+					"test": "is_family",
+					"subject": "other",
+					"value": "mob"
+				}
+			},
+			"minecraft:behavior.hurt_by_target": {
+				"priority": 1
+			},
+			"minecraft:persistent": {},
+			"minecraft:physics": {},
+			"minecraft:pushable": {
+				"is_pushable": true,
+				"is_pushable_by_piston": true
+			},
+			"minecraft:follow_range": {
+				"value": 64
+			},
+			"minecraft:conditional_bandwidth_optimization": {},
+			"minecraft:on_death": {
+				"event": "death"
+			}
+		},
+		"events": {
+			"death": {
+				"run_command": {
+					"command": [
+						"summon dd:abyssal_leviathan ~ ~ ~ ~ ~ minecraft:spawn_emerging",
+						"playsound mob.evocation_illager.prepare_wololo @a ~ ~ ~"
+					]
+				}
+			}
+		}
+	}
+}
