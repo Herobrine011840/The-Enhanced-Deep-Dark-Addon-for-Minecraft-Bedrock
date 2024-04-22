@@ -1,22 +1,28 @@
 
-Version 1.11.0 Changelog:
+Version 1.12.0 Changelog:
 
 Additions:
 
- -Added the Sentinel
+ -Added Echo Trials
 
- -Added the Skulker
+ -Added Echo Trial Keys
 
- -Added the Dwarf Gloomling
+ -Added the Echowind
 
- -Added the Echo Angler
+ -Added the Reanimated Remnant
+
+ -Added the Echo Core
+
+ -Added Reinforced Dense Metal
+
+ -Added a new boss called the Echo Golem
+
+ -Added Resonating Cores
+
+ -Added the Echo Door
 
 Changes:
 
- -Added recipe unlocking
+ -Resonance Lights now drop an item
 
- -Abyssal Leviathans will now summon Skulkers and Lost Scuttlers
-
-Fixes:
-
- -Fixed rotatable blocks not working as intended
+ -Placing a Block of Vibration Silver atop a Music Player now plays the Abyssal Leviathan's boss track
